@@ -1,8 +1,9 @@
 <?php
-require "Controllers/BaseController.php";
-require "Database/DbConnect.php";	
-require "Models/IAction.php";
-require "Models/BaseModel.php";
+session_start();
+require_once "Models/IAction.php";
+require_once "Controllers/BaseController.php";
+require_once "Models/BaseModel.php";
+require_once "Database/DbConnect.php";	
 
 $controllerName = ucfirst((strtolower($_REQUEST['controller']) ?? 'Welcome') . 'Controller');
 $actionName = strtolower($_REQUEST['action'] ?? 'index');

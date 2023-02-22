@@ -23,10 +23,10 @@ DROP TABLE IF EXISTS `attributes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `attributes` (
-  `attribute_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
   `attribute_name` varchar(50) NOT NULL,
-  PRIMARY KEY (`attribute_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,6 +35,7 @@ CREATE TABLE `attributes` (
 
 LOCK TABLES `attributes` WRITE;
 /*!40000 ALTER TABLE `attributes` DISABLE KEYS */;
+INSERT INTO `attributes` VALUES (3,'Cafe and Bar'),(6,'KienND'),(7,'HoanLX');
 /*!40000 ALTER TABLE `attributes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -46,16 +47,16 @@ DROP TABLE IF EXISTS `bookings`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `bookings` (
-  `booking_id` int unsigned NOT NULL,
+  `id` int unsigned NOT NULL,
   `user_id` int unsigned DEFAULT NULL,
   `motel_id` int unsigned DEFAULT NULL,
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
-  PRIMARY KEY (`booking_id`),
+  PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `motel_id` (`motel_id`),
-  CONSTRAINT `bookings_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
-  CONSTRAINT `bookings_ibfk_2` FOREIGN KEY (`motel_id`) REFERENCES `motels` (`motel_id`)
+  CONSTRAINT `bookings_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  CONSTRAINT `bookings_ibfk_2` FOREIGN KEY (`motel_id`) REFERENCES `motels` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -76,9 +77,12 @@ DROP TABLE IF EXISTS `districts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `districts` (
-  `district_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
   `district_name` varchar(50) NOT NULL,
-  PRIMARY KEY (`district_id`)
+  `province_id` int unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `province_id` (`province_id`),
+  CONSTRAINT `districts_ibfk_1` FOREIGN KEY (`province_id`) REFERENCES `provinces` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -99,12 +103,12 @@ DROP TABLE IF EXISTS `images`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `images` (
-  `image_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
   `motel_id` int unsigned DEFAULT NULL,
   `name` varchar(255) NOT NULL,
-  PRIMARY KEY (`image_id`),
+  PRIMARY KEY (`id`),
   KEY `motel_id` (`motel_id`),
-  CONSTRAINT `images_ibfk_1` FOREIGN KEY (`motel_id`) REFERENCES `motels` (`motel_id`)
+  CONSTRAINT `images_ibfk_1` FOREIGN KEY (`motel_id`) REFERENCES `motels` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -125,7 +129,7 @@ DROP TABLE IF EXISTS `motels`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `motels` (
-  `motel_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `price` decimal(10,0) NOT NULL,
   `description` text NOT NULL,
@@ -134,13 +138,13 @@ CREATE TABLE `motels` (
   `district_id` int unsigned DEFAULT NULL,
   `ward_id` int unsigned DEFAULT NULL,
   `attributes` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`motel_id`),
+  PRIMARY KEY (`id`),
   KEY `province_id` (`province_id`),
   KEY `district_id` (`district_id`),
   KEY `ward_id` (`ward_id`),
-  CONSTRAINT `motels_ibfk_1` FOREIGN KEY (`province_id`) REFERENCES `provinces` (`province_id`),
-  CONSTRAINT `motels_ibfk_2` FOREIGN KEY (`district_id`) REFERENCES `districts` (`district_id`),
-  CONSTRAINT `motels_ibfk_3` FOREIGN KEY (`ward_id`) REFERENCES `wards` (`ward_id`)
+  CONSTRAINT `motels_ibfk_1` FOREIGN KEY (`province_id`) REFERENCES `provinces` (`id`),
+  CONSTRAINT `motels_ibfk_2` FOREIGN KEY (`district_id`) REFERENCES `districts` (`id`),
+  CONSTRAINT `motels_ibfk_3` FOREIGN KEY (`ward_id`) REFERENCES `wards` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -161,14 +165,14 @@ DROP TABLE IF EXISTS `orders`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `orders` (
-  `order_id` int unsigned NOT NULL,
+  `id` int unsigned NOT NULL,
   `booking_id` int unsigned DEFAULT NULL,
   `status` int NOT NULL,
   `order_total` decimal(10,0) NOT NULL,
   `created_at` timestamp NOT NULL,
-  PRIMARY KEY (`order_id`),
+  PRIMARY KEY (`id`),
   KEY `booking_id` (`booking_id`),
-  CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`booking_id`) REFERENCES `bookings` (`booking_id`)
+  CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`booking_id`) REFERENCES `bookings` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -189,17 +193,17 @@ DROP TABLE IF EXISTS `posts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `posts` (
-  `post_id` int unsigned NOT NULL,
+  `id` int unsigned NOT NULL,
   `user_id` int unsigned DEFAULT NULL,
   `motel_id` int unsigned DEFAULT NULL,
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `created_at` timestamp NOT NULL,
-  PRIMARY KEY (`post_id`),
+  PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `motel_id` (`motel_id`),
-  CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
-  CONSTRAINT `posts_ibfk_2` FOREIGN KEY (`motel_id`) REFERENCES `motels` (`motel_id`)
+  CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  CONSTRAINT `posts_ibfk_2` FOREIGN KEY (`motel_id`) REFERENCES `motels` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -220,9 +224,10 @@ DROP TABLE IF EXISTS `provinces`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `provinces` (
-  `province_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
   `province_name` varchar(50) NOT NULL,
-  PRIMARY KEY (`province_id`)
+  `gso_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -243,16 +248,16 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
-  `user_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `avatar` varchar(255) DEFAULT NULL,
   `phonenumber` varchar(255) NOT NULL,
   `age` int DEFAULT NULL,
-  `ROLE` varchar(30) NOT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `role` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -261,6 +266,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'kiennd','ngkien1911@gmail.com','kien1911','','0912341342',20,'admin'),(2,'admin','ngkien1911@gmail.co','13241',NULL,'12341324',NULL,'customer'),(3,'newkien','newkien@gmail.com','5b5f61893a41721b8906582b47f2fb1c',NULL,'12341234',NULL,'owner'),(4,'newkien','newkien@gmail.com','5b5f61893a41721b8906582b47f2fb1c',NULL,'12341234',NULL,'owner');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -272,9 +278,12 @@ DROP TABLE IF EXISTS `wards`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `wards` (
-  `ward_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
   `ward_name` varchar(50) NOT NULL,
-  PRIMARY KEY (`ward_id`)
+  `district_id` int unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `district_id` (`district_id`),
+  CONSTRAINT `wards_ibfk_1` FOREIGN KEY (`district_id`) REFERENCES `districts` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -300,4 +309,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-21 17:57:40
+-- Dump completed on 2023-02-22 17:45:34

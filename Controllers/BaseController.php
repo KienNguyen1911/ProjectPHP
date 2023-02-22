@@ -10,13 +10,20 @@ class BaseController
             $$key = $value;
         }
         
-        require(self::VIEW_FOLDER_NAME . '/' . str_replace('.', '/', $viewPath) . '.php');
+        require_once(self::VIEW_FOLDER_NAME . '/' . str_replace('.', '/', $viewPath) . '.php');
     }
 
     protected function loadModel($modelPath)
     {
-        // require('Models/' . $modelPath . '.php');
-        require(self::MODEL_FOLDER_NAME . '/' . $modelPath . '.php');
+        require_once (self::MODEL_FOLDER_NAME . '/' . $modelPath . '.php');
+    }
+
+    protected function validateInput($input)
+    {
+        $input = trim($input);
+        $input = stripslashes($input);
+        $input = htmlspecialchars($input);
+        return $input;
     }
 
 }
