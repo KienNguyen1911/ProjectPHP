@@ -7,7 +7,7 @@
             aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0" href="https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html"
             target="_blank">
-            <img src="../../assets/img/logo-ct.png" class="navbar-brand-img h-100" alt="main_logo">
+            <img src="Views/assets/img/logo-ct.png" class="navbar-brand-img h-100" alt="main_logo">
             <span class="ms-1 font-weight-bold">Soft UI Dashboard</span>
         </a>
     </div>
@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse  w-auto  max-height-vh-100 h-100" id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link  active" href="dashboard.php">
+                <a class="nav-link  active" href="index.php?controller=admin&action=dashboard">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1"
@@ -41,7 +41,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link  " href="tables.php">
+                <a class="nav-link  " href="index.php?controller=admin&action=tables">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1"
@@ -67,7 +67,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link  " href="billing.php">
+                <a class="nav-link  " href="index.php?controller=admin&action=billing">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1"
@@ -96,7 +96,7 @@
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
             </li>
             <li class="nav-item">
-                <a class="nav-link  " href="profile.php">
+                <a class="nav-link  " href="index.php?controller=admin&action=profile">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1"
@@ -125,7 +125,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link  " href="sign-in.php">
+                <a class="nav-link  " href="index.php?controller=admin&action=signin">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1"
@@ -151,7 +151,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link  " href="sign-up.php">
+                <a class="nav-link  " href="index.php?controller=admin&action=signup">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="20px" viewBox="0 0 40 40" version="1.1"

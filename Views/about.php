@@ -21,11 +21,11 @@
       <div class="row">
         <div class="col-lg-7">
           <div class="owl-single dots-absolute owl-carousel">
-            <img src="assets/images/slider-1.jpg" alt="Free HTML Template by Untree.co" class="img-fluid rounded-20">
-            <img src="assets/images/slider-2.jpg" alt="Free HTML Template by Untree.co" class="img-fluid rounded-20">
-            <img src="assets/images/slider-3.jpg" alt="Free HTML Template by Untree.co" class="img-fluid rounded-20">
-            <img src="assets/images/slider-4.jpg" alt="Free HTML Template by Untree.co" class="img-fluid rounded-20">
-            <img src="assets/images/slider-5.jpg" alt="Free HTML Template by Untree.co" class="img-fluid rounded-20">
+            <img src="Views/assets/images/slider-1.jpg" alt="Free HTML Template by Untree.co" class="img-fluid rounded-20">
+            <img src="Views/assets/images/slider-2.jpg" alt="Free HTML Template by Untree.co" class="img-fluid rounded-20">
+            <img src="Views/assets/images/slider-3.jpg" alt="Free HTML Template by Untree.co" class="img-fluid rounded-20">
+            <img src="Views/assets/images/slider-4.jpg" alt="Free HTML Template by Untree.co" class="img-fluid rounded-20">
+            <img src="Views/assets/images/slider-5.jpg" alt="Free HTML Template by Untree.co" class="img-fluid rounded-20">
           </div>
         </div>
         <div class="col-lg-5 pl-lg-5 ml-auto">
@@ -60,7 +60,7 @@
       <div class="row">
         <div class="col-lg-3 mb-4">
           <div class="team">
-            <img src="assets/images/person_1.jpg" alt="Image" class="img-fluid mb-4 rounded-20">
+            <img src="Views/assets/images/person_1.jpg" alt="Image" class="img-fluid mb-4 rounded-20">
             <div class="px-3">
               <h3 class="mb-0">James Watson</h3>
               <p>Co-Founder &amp; CEO</p>
@@ -69,7 +69,7 @@
         </div>
         <div class="col-lg-3 mb-4">
           <div class="team">
-            <img src="assets/images/person_2.jpg" alt="Image" class="img-fluid mb-4 rounded-20">
+            <img src="Views/assets/images/person_2.jpg" alt="Image" class="img-fluid mb-4 rounded-20">
             <div class="px-3">
               <h3 class="mb-0">Carl Anderson</h3>
               <p>Co-Founder &amp; CEO</p>
@@ -79,7 +79,7 @@
 
         <div class="col-lg-3 mb-4">
           <div class="team">
-            <img src="assets/images/person_4.jpg" alt="Image" class="img-fluid mb-4 rounded-20">
+            <img src="Views/assets/images/person_4.jpg" alt="Image" class="img-fluid mb-4 rounded-20">
             <div class="px-3">
               <h3 class="mb-0">Michelle Allison</h3>
               <p>Co-Founder &amp; CEO</p>
@@ -88,7 +88,7 @@
         </div>
         <div class="col-lg-3 mb-4">
           <div class="team">
-            <img src="assets/images/person_3.jpg" alt="Image" class="img-fluid mb-4 rounded-20">
+            <img src="Views/assets/images/person_3.jpg" alt="Image" class="img-fluid mb-4 rounded-20">
             <div class="px-3">
               <h3 class="mb-0">Drew Wood</h3>
               <p>Co-Founder &amp; CEO</p>
@@ -113,7 +113,7 @@
           <div class="owl-single owl-carousel no-nav">
             <div class="testimonial mx-auto">
               <figure class="img-wrap">
-                <img src="assets/images/person_2.jpg" alt="Image" class="img-fluid">
+                <img src="Views/assets/images/person_2.jpg" alt="Image" class="img-fluid">
               </figure>
               <h3 class="name">Adam Aderson</h3>
               <blockquote>
@@ -123,7 +123,7 @@
 
             <div class="testimonial mx-auto">
               <figure class="img-wrap">
-                <img src="assets/images/person_3.jpg" alt="Image" class="img-fluid">
+                <img src="Views/assets/images/person_3.jpg" alt="Image" class="img-fluid">
               </figure>
               <h3 class="name">Lukas Devlin</h3>
               <blockquote>
@@ -133,7 +133,7 @@
 
             <div class="testimonial mx-auto">
               <figure class="img-wrap">
-                <img src="assets/images/person_4.jpg" alt="Image" class="img-fluid">
+                <img src="Views/assets/images/person_4.jpg" alt="Image" class="img-fluid">
               </figure>
               <h3 class="name">Kayla Bryant</h3>
               <blockquote>
@@ -157,7 +157,7 @@
             <a id="play-video" class="video-play-button" href="https://www.youtube.com/watch?v=mwtbEGNABWU" data-fancybox>
               <span></span>
             </a>
-            <img src="assets/images/hero-slider-2.jpg" alt="Image" class="img-fluid rounded-20">
+            <img src="Views/assets/images/hero-slider-2.jpg" alt="Image" class="img-fluid rounded-20">
           </figure>
         </div>
 

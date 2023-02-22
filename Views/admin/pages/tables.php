@@ -1,8 +1,8 @@
 <body class="g-sidenav-show  bg-gray-100">
-  <?php require '../layout_admin/aside.php' ?>
+  <?php require 'Views/admin/layout_admin/aside.php' ?>
   <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
     <!-- Navbar -->
-    <?php require '../layout_admin/navbar.php' ?>
+    <?php require 'Views/admin/layout_admin/navbar.php' ?>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
       <div class="row">
@@ -30,7 +30,7 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
-                            <img src="../../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
+                            <img src="Views/assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-sm">John Michael</h6>
@@ -59,7 +59,7 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
-                            <img src="../../assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user2">
+                            <img src="Views/assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user2">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-sm">Alexa Liras</h6>
@@ -88,7 +88,7 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
-                            <img src="../../assets/img/team-4.jpg" class="avatar avatar-sm me-3" alt="user3">
+                            <img src="Views/assets/img/team-4.jpg" class="avatar avatar-sm me-3" alt="user3">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-sm">Laurent Perrier</h6>
@@ -117,7 +117,7 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
-                            <img src="../../assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user4">
+                            <img src="Views/assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user4">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-sm">Michael Levi</h6>
@@ -146,7 +146,7 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
-                            <img src="../../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user5">
+                            <img src="Views/assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user5">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-sm">Richard Gran</h6>
@@ -175,7 +175,7 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
-                            <img src="../../assets/img/team-4.jpg" class="avatar avatar-sm me-3" alt="user6">
+                            <img src="Views/assets/img/team-4.jpg" class="avatar avatar-sm me-3" alt="user6">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-sm">Miriam Eric</h6>
@@ -231,7 +231,7 @@
                       <td>
                         <div class="d-flex px-2">
                           <div>
-                            <img src="../../assets/img/small-logos/logo-spotify.svg"
+                            <img src="Views/assets/img/small-logos/logo-spotify.svg"
                               class="avatar avatar-sm rounded-circle me-2" alt="spotify">
                           </div>
                           <div class="my-auto">
@@ -266,7 +266,7 @@
                       <td>
                         <div class="d-flex px-2">
                           <div>
-                            <img src="../../assets/img/small-logos/logo-invision.svg"
+                            <img src="Views/assets/img/small-logos/logo-invision.svg"
                               class="avatar avatar-sm rounded-circle me-2" alt="invision">
                           </div>
                           <div class="my-auto">
@@ -301,7 +301,7 @@
                       <td>
                         <div class="d-flex px-2">
                           <div>
-                            <img src="../../assets/img/small-logos/logo-jira.svg"
+                            <img src="Views/assets/img/small-logos/logo-jira.svg"
                               class="avatar avatar-sm rounded-circle me-2" alt="jira">
                           </div>
                           <div class="my-auto">
@@ -336,7 +336,7 @@
                       <td>
                         <div class="d-flex px-2">
                           <div>
-                            <img src="../../assets/img/small-logos/logo-slack.svg"
+                            <img src="Views/assets/img/small-logos/logo-slack.svg"
                               class="avatar avatar-sm rounded-circle me-2" alt="slack">
                           </div>
                           <div class="my-auto">
@@ -371,7 +371,7 @@
                       <td>
                         <div class="d-flex px-2">
                           <div>
-                            <img src="../../assets/img/small-logos/logo-webdev.svg"
+                            <img src="Views/assets/img/small-logos/logo-webdev.svg"
                               class="avatar avatar-sm rounded-circle me-2" alt="webdev">
                           </div>
                           <div class="my-auto">
@@ -406,7 +406,7 @@
                       <td>
                         <div class="d-flex px-2">
                           <div>
-                            <img src="../../assets/img/small-logos/logo-xd.svg"
+                            <img src="Views/assets/img/small-logos/logo-xd.svg"
                               class="avatar avatar-sm rounded-circle me-2" alt="xd">
                           </div>
                           <div class="my-auto">
@@ -556,7 +556,7 @@
       </div>
     </div>
   </div>
-  <?php require '../layout_admin/footer.php' ?>
+  <?php require 'Views/admin/layout_admin/footer.php' ?>
 
   <script>
     var win = navigator.platform.indexOf('Win') > -1;

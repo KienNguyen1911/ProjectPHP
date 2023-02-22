@@ -13,6 +13,6 @@ require_once "Controllers/${controllerName}.php";
 $controllerObject = new $controllerName();
 
 $controllerObject->$actionName();
-
+?>
 
 

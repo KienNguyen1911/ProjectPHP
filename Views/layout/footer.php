@@ -89,16 +89,16 @@
     </div>
 </div>
 
-<script src="assets/js/jquery-3.4.1.min.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/owl.carousel.min.js"></script>
-<script src="assets/js/jquery.animateNumber.min.js"></script>
-<script src="assets/js/jquery.waypoints.min.js"></script>
-<script src="assets/js/jquery.fancybox.min.js"></script>
-<script src="assets/js/aos.js"></script>
-<script src="assets/js/moment.min.js"></script>
-<script src="assets/js/daterangepicker.js"></script>
+<script src="Views/assets/js/jquery-3.4.1.min.js"></script>
+<script src="Views/assets/js/popper.min.js"></script>
+<script src="Views/assets/js/bootstrap.min.js"></script>
+<script src="Views/assets/js/owl.carousel.min.js"></script>
+<script src="Views/assets/js/jquery.animateNumber.min.js"></script>
+<script src="Views/assets/js/jquery.waypoints.min.js"></script>
+<script src="Views/assets/js/jquery.fancybox.min.js"></script>
+<script src="Views/assets/js/aos.js"></script>
+<script src="Views/assets/js/moment.min.js"></script>
+<script src="Views/assets/js/daterangepicker.js"></script>
 
-<script src="assets/js/custom.js"></script>
-<script src="assets/js/typed.js"></script>
+<script src="Views/assets/js/custom.js"></script>
+<script src="Views/assets/js/typed.js"></script>

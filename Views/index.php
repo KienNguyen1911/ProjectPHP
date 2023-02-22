@@ -52,11 +52,11 @@
 				</div>
 				<div class="col-lg-5">
 					<div class="slides">
-						<img src="assets/images/hero-slider-1.jpg" alt="Image" class="img-fluid active">
-						<img src="assets/images/hero-slider-2.jpg" alt="Image" class="img-fluid">
-						<img src="assets/images/hero-slider-3.jpg" alt="Image" class="img-fluid">
-						<img src="assets/images/hero-slider-4.jpg" alt="Image" class="img-fluid">
-						<img src="assets/images/hero-slider-5.jpg" alt="Image" class="img-fluid">
+						<img src="Views/assets/images/hero-slider-1.jpg" alt="Image" class="img-fluid active">
+						<img src="Views/assets/images/hero-slider-2.jpg" alt="Image" class="img-fluid">
+						<img src="Views/assets/images/hero-slider-3.jpg" alt="Image" class="img-fluid">
+						<img src="Views/assets/images/hero-slider-4.jpg" alt="Image" class="img-fluid">
+						<img src="Views/assets/images/hero-slider-5.jpg" alt="Image" class="img-fluid">
 					</div>
 				</div>
 			</div>
@@ -76,7 +76,7 @@
 				<div class="col-lg-4 order-lg-1">
 					<div class="h-100">
 						<div class="frame h-100">
-							<div class="feature-img-bg h-100" style="background-image: url('assets/images/hero-slider-1.jpg');"></div>
+							<div class="feature-img-bg h-100" style="background-image: url('Views/assets/images/hero-slider-1.jpg');"></div>
 						</div>
 					</div>
 				</div>
@@ -177,63 +177,63 @@
 			<div class="owl-carousel owl-3-slider">
 
 				<div class="item">
-					<a class="media-thumb" href="assets/images/hero-slider-1.jpg" data-fancybox="gallery">
+					<a class="media-thumb" href="Views/assets/images/hero-slider-1.jpg" data-fancybox="gallery">
 						<div class="media-text">
 							<h3>Pragser Wildsee</h3>
 							<span class="location">Italy</span>
 						</div>
-						<img src="assets/images/hero-slider-1.jpg" alt="Image" class="img-fluid">
+						<img src="Views/assets/images/hero-slider-1.jpg" alt="Image" class="img-fluid">
 					</a>
 				</div>
 
 				<div class="item">
-					<a class="media-thumb" href="assets/images/hero-slider-2.jpg" data-fancybox="gallery">
+					<a class="media-thumb" href="Views/assets/images/hero-slider-2.jpg" data-fancybox="gallery">
 						<div class="media-text">
 							<h3>Oia</h3>
 							<span class="location">Greece</span>
 						</div>
-						<img src="assets/images/hero-slider-2.jpg" alt="Image" class="img-fluid">
+						<img src="Views/assets/images/hero-slider-2.jpg" alt="Image" class="img-fluid">
 					</a>
 				</div>
 
 				<div class="item">
-					<a class="media-thumb" href="assets/images/hero-slider-3.jpg" data-fancybox="gallery">
+					<a class="media-thumb" href="Views/assets/images/hero-slider-3.jpg" data-fancybox="gallery">
 						<div class="media-text">
 							<h3>Perhentian Islands</h3>
 							<span class="location">Malaysia</span>
 						</div>
-						<img src="assets/images/hero-slider-3.jpg" alt="Image" class="img-fluid">
+						<img src="Views/assets/images/hero-slider-3.jpg" alt="Image" class="img-fluid">
 					</a>
 				</div>
 
 
 				<div class="item">
-					<a class="media-thumb" href="assets/images/hero-slider-4.jpg" data-fancybox="gallery">
+					<a class="media-thumb" href="Views/assets/images/hero-slider-4.jpg" data-fancybox="gallery">
 						<div class="media-text">
 							<h3>Rialto Bridge</h3>
 							<span class="location">Italy</span>
 						</div>
-						<img src="assets/images/hero-slider-4.jpg" alt="Image" class="img-fluid">
+						<img src="Views/assets/images/hero-slider-4.jpg" alt="Image" class="img-fluid">
 					</a>
 				</div>
 
 				<div class="item">
-					<a class="media-thumb" href="assets/images/hero-slider-5.jpg" data-fancybox="gallery">
+					<a class="media-thumb" href="Views/assets/images/hero-slider-5.jpg" data-fancybox="gallery">
 						<div class="media-text">
 							<h3>San Francisco, United States</h3>
 							<span class="location">United States</span>
 						</div>
-						<img src="assets/images/hero-slider-5.jpg" alt="Image" class="img-fluid">
+						<img src="Views/assets/images/hero-slider-5.jpg" alt="Image" class="img-fluid">
 					</a>
 				</div>
 
 				<div class="item">
-					<a class="media-thumb" href="assets/images/hero-slider-1.jpg" data-fancybox="gallery">
+					<a class="media-thumb" href="Views/assets/images/hero-slider-1.jpg" data-fancybox="gallery">
 						<div class="media-text">
 							<h3>Lake Thun</h3>
 							<span class="location">Switzerland</span>
 						</div>
-						<img src="assets/images/hero-slider-2.jpg" alt="Image" class="img-fluid">
+						<img src="Views/assets/images/hero-slider-2.jpg" alt="Image" class="img-fluid">
 					</a>
 				</div>
 
@@ -252,7 +252,7 @@
 					<div class="owl-single owl-carousel no-nav">
 						<div class="testimonial mx-auto">
 							<figure class="img-wrap">
-								<img src="assets/images/person_2.jpg" alt="Image" class="img-fluid">
+								<img src="Views/assets/images/person_2.jpg" alt="Image" class="img-fluid">
 							</figure>
 							<h3 class="name">Adam Aderson</h3>
 							<blockquote>
@@ -262,7 +262,7 @@
 
 						<div class="testimonial mx-auto">
 							<figure class="img-wrap">
-								<img src="assets/images/person_3.jpg" alt="Image" class="img-fluid">
+								<img src="Views/assets/images/person_3.jpg" alt="Image" class="img-fluid">
 							</figure>
 							<h3 class="name">Lukas Devlin</h3>
 							<blockquote>
@@ -272,7 +272,7 @@
 
 						<div class="testimonial mx-auto">
 							<figure class="img-wrap">
-								<img src="assets/images/person_4.jpg" alt="Image" class="img-fluid">
+								<img src="Views/assets/images/person_4.jpg" alt="Image" class="img-fluid">
 							</figure>
 							<h3 class="name">Kayla Bryant</h3>
 							<blockquote>
@@ -299,7 +299,7 @@
 			<div class="row">
 				<div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
 					<div class="media-1">
-						<a href="#" class="d-block mb-3"><img src="assets/images/hero-slider-1.jpg" alt="Image" class="img-fluid"></a>
+						<a href="#" class="d-block mb-3"><img src="Views/assets/images/hero-slider-1.jpg" alt="Image" class="img-fluid"></a>
 						<span class="d-flex align-items-center loc mb-2">
 							<span class="icon-room mr-3"></span>
 							<span>Italy</span>
@@ -318,7 +318,7 @@
 				</div>
 				<div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
 					<div class="media-1">
-						<a href="#" class="d-block mb-3"><img src="assets/images/hero-slider-2.jpg" alt="Image" class="img-fluid"></a>
+						<a href="#" class="d-block mb-3"><img src="Views/assets/images/hero-slider-2.jpg" alt="Image" class="img-fluid"></a>
 						<span class="d-flex align-items-center loc mb-2">
 							<span class="icon-room mr-3"></span>
 							<span>United States</span>
@@ -337,7 +337,7 @@
 				</div>
 				<div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
 					<div class="media-1">
-						<a href="#" class="d-block mb-3"><img src="assets/images/hero-slider-3.jpg" alt="Image" class="img-fluid"></a>
+						<a href="#" class="d-block mb-3"><img src="Views/assets/images/hero-slider-3.jpg" alt="Image" class="img-fluid"></a>
 						<span class="d-flex align-items-center loc mb-2">
 							<span class="icon-room mr-3"></span>
 							<span>Malaysia</span>
@@ -356,7 +356,7 @@
 				</div>
 				<div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
 					<div class="media-1">
-						<a href="#" class="d-block mb-3"><img src="assets/images/hero-slider-4.jpg" alt="Image" class="img-fluid"></a>
+						<a href="#" class="d-block mb-3"><img src="Views/assets/images/hero-slider-4.jpg" alt="Image" class="img-fluid"></a>
 
 						<span class="d-flex align-items-center loc mb-2">
 							<span class="icon-room mr-3"></span>
@@ -388,7 +388,7 @@
 						<a id="play-video" class="video-play-button" href="https://www.youtube.com/watch?v=mwtbEGNABWU" data-fancybox>
 							<span></span>
 						</a>
-						<img src="assets/images/hero-slider-2.jpg" alt="Image" class="img-fluid rounded-20">
+						<img src="Views/assets/images/hero-slider-2.jpg" alt="Image" class="img-fluid rounded-20">
 					</figure>
 				</div>
 

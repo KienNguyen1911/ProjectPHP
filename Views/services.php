@@ -1,55 +1,8 @@
-<?php 
+<?php
 require 'layout/header.php';
 ?>
 
 <body>
-
-
-  <!-- <div class="site-mobile-menu site-navbar-target">
-    <div class="site-mobile-menu-header">
-      <div class="site-mobile-menu-close">
-        <span class="icofont-close js-menu-toggle"></span>
-      </div>
-    </div>
-    <div class="site-mobile-menu-body"></div>
-  </div>
-
-  <nav class="site-nav">
-    <div class="container">
-      <div class="site-navigation">
-        <a href="index.html" class="logo m-0">Tour <span class="text-primary">.</span></a>
-
-        <ul class="js-clone-nav d-none d-lg-inline-block text-left site-menu float-right">
-          <li><a href="index.html">Home</a></li>
-          <li class="has-children">
-            <a href="#">Dropdown</a>
-            <ul class="dropdown">
-              <li><a href="elements.html">Elements</a></li>
-              <li><a href="#">Menu One</a></li>
-              <li class="has-children">
-                <a href="#">Menu Two</a>
-                <ul class="dropdown">
-                  <li><a href="#">Sub Menu One</a></li>
-                  <li><a href="#">Sub Menu Two</a></li>
-                  <li><a href="#">Sub Menu Three</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Menu Three</a></li>
-            </ul>
-          </li>
-          <li class="active"><a href="services.html">Services</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.php">Contact Us</a></li>
-        </ul>
-
-        <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none light" data-toggle="collapse" data-target="#main-navbar">
-          <span></span>
-        </a>
-
-      </div>
-    </div>
-  </nav> -->
-
 
   <div class="hero hero-inner">
     <div class="container">
@@ -64,14 +17,14 @@ require 'layout/header.php';
     </div>
   </div>
 
-  
-  
+
+
   <div class="untree_co-section">
     <div class="container">
       <div class="row">
         <div class="col-6 col-md-6 col-lg-3">
           <div class="media-1">
-            <a href="#" class="d-block mb-3"><img src="assets/images/hero-slider-1.jpg" alt="Image" class="img-fluid"></a>
+            <a href="#" class="d-block mb-3"><img src="Views/assets/images/hero-slider-1.jpg" alt="Image" class="img-fluid"></a>
             <div class="d-flex">
               <div>
                 <h3><a href="#">Excellence in Travel</a></h3>
@@ -82,7 +35,7 @@ require 'layout/header.php';
         </div>
         <div class="col-6 col-md-6 col-lg-3">
           <div class="media-1">
-            <a href="#" class="d-block mb-3"><img src="assets/images/hero-slider-2.jpg" alt="Image" class="img-fluid"></a>
+            <a href="#" class="d-block mb-3"><img src="Views/assets/images/hero-slider-2.jpg" alt="Image" class="img-fluid"></a>
             <div class="d-flex">
               <div>
                 <h3><a href="#">Discovering Best</a></h3>
@@ -93,7 +46,7 @@ require 'layout/header.php';
         </div>
         <div class="col-6 col-md-6 col-lg-3">
           <div class="media-1">
-            <a href="#" class="d-block mb-3"><img src="assets/images/hero-slider-3.jpg" alt="Image" class="img-fluid"></a>
+            <a href="#" class="d-block mb-3"><img src="Views/assets/images/hero-slider-3.jpg" alt="Image" class="img-fluid"></a>
             <div class="d-flex">
               <div>
                 <h3><a href="#">A New Moments of Life</a></h3>
@@ -104,7 +57,7 @@ require 'layout/header.php';
         </div>
         <div class="col-6 col-md-6 col-lg-3">
           <div class="media-1">
-            <a href="#" class="d-block mb-3"><img src="assets/images/hero-slider-4.jpg" alt="Image" class="img-fluid"></a>
+            <a href="#" class="d-block mb-3"><img src="Views/assets/images/hero-slider-4.jpg" alt="Image" class="img-fluid"></a>
             <div class="d-flex">
               <div>
                 <h3><a href="#">Joy To Your Journey</a></h3>
@@ -162,10 +115,14 @@ require 'layout/header.php';
       </div>
       <div class="row align-items-stretch">
         <div class="col-lg-4 order-lg-1">
-          <div class="h-100"><div class="frame h-100"><div class="feature-img-bg h-100" style="background-image: url('assets/images/hero-slider-1.jpg');"></div></div></div>
+          <div class="h-100">
+            <div class="frame h-100">
+              <div class="feature-img-bg h-100" style="background-image: url('Views/assets/images/hero-slider-1.jpg');"></div>
+            </div>
+          </div>
         </div>
 
-        <div class="col-6 col-sm-6 col-lg-4 feature-1-wrap d-md-flex flex-md-column order-lg-1" >
+        <div class="col-6 col-sm-6 col-lg-4 feature-1-wrap d-md-flex flex-md-column order-lg-1">
 
           <div class="feature-1 d-md-flex">
             <div class="align-self-center">
@@ -185,7 +142,7 @@ require 'layout/header.php';
 
         </div>
 
-        <div class="col-6 col-sm-6 col-lg-4 feature-1-wrap d-md-flex flex-md-column order-lg-3" >
+        <div class="col-6 col-sm-6 col-lg-4 feature-1-wrap d-md-flex flex-md-column order-lg-3">
 
           <div class="feature-1 d-md-flex">
             <div class="align-self-center">
@@ -211,13 +168,13 @@ require 'layout/header.php';
 
 
 
-	<?php 
-	require 'layout/footer.php';
-	?>
+  <?php
+  require 'layout/footer.php';
+  ?>
 
-  <script src="assets/js/typed.js"></script>
-  
-  <script src="assets/js/custom.js"></script>
+  <script src="Views/assets/js/typed.js"></script>
+
+  <script src="Views/assets/js/custom.js"></script>
 
 </body>
 

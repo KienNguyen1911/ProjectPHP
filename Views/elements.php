@@ -66,9 +66,9 @@
     <div class="container my-5">
       <div class="mb-5">
         <div class="owl-single dots-absolute owl-carousel">
-          <img src="assets/images/slider-1.jpg" alt="Free HTML Template by Untree.co" class="img-fluid">
-          <img src="assets/images/slider-2.jpg" alt="Free HTML Template by Untree.co" class="img-fluid">
-          <img src="assets/images/slider-4.jpg" alt="Free HTML Template by Untree.co" class="img-fluid">
+          <img src="Views/assets/images/slider-1.jpg" alt="Free HTML Template by Untree.co" class="img-fluid">
+          <img src="Views/assets/images/slider-2.jpg" alt="Free HTML Template by Untree.co" class="img-fluid">
+          <img src="Views/assets/images/slider-4.jpg" alt="Free HTML Template by Untree.co" class="img-fluid">
         </div>
       </div>
 
@@ -119,22 +119,22 @@
             <h2 class="section-title">Gallery</h2>
             <div class="row gutter-v2 gallery">
               <div class="col-4">
-                <a href="assets/images/gal_1.jpg" class="gal-item" data-fancybox="gal"><img src="assets/images/gal_1.jpg" alt="Image" class="img-fluid"></a>
+                <a href="Views/assets/images/gal_1.jpg" class="gal-item" data-fancybox="gal"><img src="Views/assets/images/gal_1.jpg" alt="Image" class="img-fluid"></a>
               </div>
               <div class="col-4">
-                <a href="assets/images/gal_2.jpg" class="gal-item" data-fancybox="gal"><img src="assets/images/gal_2.jpg" alt="Image" class="img-fluid"></a>
+                <a href="Views/assets/images/gal_2.jpg" class="gal-item" data-fancybox="gal"><img src="Views/assets/images/gal_2.jpg" alt="Image" class="img-fluid"></a>
               </div>
               <div class="col-4">
-                <a href="assets/images/gal_3.jpg" class="gal-item" data-fancybox="gal"><img src="assets/images/gal_3.jpg" alt="Image" class="img-fluid"></a>
+                <a href="Views/assets/images/gal_3.jpg" class="gal-item" data-fancybox="gal"><img src="Views/assets/images/gal_3.jpg" alt="Image" class="img-fluid"></a>
               </div>
               <div class="col-4">
-                <a href="assets/images/gal_4.jpg" class="gal-item" data-fancybox="gal"><img src="assets/images/gal_4.jpg" alt="Image" class="img-fluid"></a>
+                <a href="Views/assets/images/gal_4.jpg" class="gal-item" data-fancybox="gal"><img src="Views/assets/images/gal_4.jpg" alt="Image" class="img-fluid"></a>
               </div>
               <div class="col-4">
-                <a href="assets/images/gal_5.jpg" class="gal-item" data-fancybox="gal"><img src="assets/images/gal_5.jpg" alt="Image" class="img-fluid"></a>
+                <a href="Views/assets/images/gal_5.jpg" class="gal-item" data-fancybox="gal"><img src="Views/assets/images/gal_5.jpg" alt="Image" class="img-fluid"></a>
               </div>
               <div class="col-4">
-                <a href="assets/images/gal_6.jpg" class="gal-item" data-fancybox="gal"><img src="assets/images/gal_6.jpg" alt="Image" class="img-fluid"></a>
+                <a href="Views/assets/images/gal_6.jpg" class="gal-item" data-fancybox="gal"><img src="Views/assets/images/gal_6.jpg" alt="Image" class="img-fluid"></a>
               </div>
             </div>
           </div> <!-- END .custom-block -->
@@ -144,7 +144,7 @@
 
             <a href="https://vimeo.com/342333493" data-fancybox class="video-wrap">
               <span class="play-wrap"><span class="icon-play"></span></span>
-              <img src="assets/images/bg_1.jpg" alt="Image" class="img-fluid rounded">
+              <img src="Views/assets/images/bg_1.jpg" alt="Image" class="img-fluid rounded">
             </a>
           </div> <!-- END .custom-block -->
         </div>
@@ -217,7 +217,7 @@
             <div class="owl-single owl-carousel no-nav">
               <div class="testimonial mx-auto">
                 <figure class="img-wrap">
-                  <img src="assets/images/person_2.jpg" alt="Image" class="img-fluid">
+                  <img src="Views/assets/images/person_2.jpg" alt="Image" class="img-fluid">
                 </figure>
                 <h3 class="name">Adam Aderson</h3>
                 <blockquote>
@@ -227,7 +227,7 @@
 
               <div class="testimonial mx-auto">
                 <figure class="img-wrap">
-                  <img src="assets/images/person_3.jpg" alt="Image" class="img-fluid">
+                  <img src="Views/assets/images/person_3.jpg" alt="Image" class="img-fluid">
                 </figure>
                 <h3 class="name">Lukas Devlin</h3>
                 <blockquote>
@@ -237,7 +237,7 @@
 
               <div class="testimonial mx-auto">
                 <figure class="img-wrap">
-                  <img src="assets/images/person_4.jpg" alt="Image" class="img-fluid">
+                  <img src="Views/assets/images/person_4.jpg" alt="Image" class="img-fluid">
                 </figure>
                 <h3 class="name">Kayla Bryant</h3>
                 <blockquote>
@@ -262,7 +262,7 @@
           <div class="row">
             <div class="col-lg-3 mb-4">
               <div class="team">
-                <img src="assets/images/person_1.jpg" alt="Image" class="img-fluid mb-4">
+                <img src="Views/assets/images/person_1.jpg" alt="Image" class="img-fluid mb-4">
                 <div class="px-3">
                   <h3 class="mb-0">James Watson</h3>
                   <p>Co-Founder &amp; CEO</p>
@@ -271,7 +271,7 @@
             </div>
             <div class="col-lg-3 mb-4">
               <div class="team">
-                <img src="assets/images/person_2.jpg" alt="Image" class="img-fluid mb-4">
+                <img src="Views/assets/images/person_2.jpg" alt="Image" class="img-fluid mb-4">
                 <div class="px-3">
                   <h3 class="mb-0">Carl Anderson</h3>
                   <p>Co-Founder &amp; CEO</p>
@@ -281,7 +281,7 @@
 
             <div class="col-lg-3 mb-4">
               <div class="team">
-                <img src="assets/images/person_4.jpg" alt="Image" class="img-fluid mb-4">
+                <img src="Views/assets/images/person_4.jpg" alt="Image" class="img-fluid mb-4">
                 <div class="px-3">
                   <h3 class="mb-0">Michelle Allison</h3>
                   <p>Co-Founder &amp; CEO</p>
@@ -290,7 +290,7 @@
             </div>
             <div class="col-lg-3 mb-4">
               <div class="team">
-                <img src="assets/images/person_3.jpg" alt="Image" class="img-fluid mb-4">
+                <img src="Views/assets/images/person_3.jpg" alt="Image" class="img-fluid mb-4">
                 <div class="px-3">
                   <h3 class="mb-0">Drew Wood</h3>
                   <p>Co-Founder &amp; CEO</p>

@@ -129,7 +129,7 @@
           <div class="owl-single owl-carousel no-nav">
             <div class="testimonial mx-auto">
               <figure class="img-wrap">
-                <img src="assets/images/person_2.jpg" alt="Image" class="img-fluid">
+                <img src="Views/assets/images/person_2.jpg" alt="Image" class="img-fluid">
               </figure>
               <h3 class="name">Adam Aderson</h3>
               <blockquote>
@@ -139,7 +139,7 @@
 
             <div class="testimonial mx-auto">
               <figure class="img-wrap">
-                <img src="assets/images/person_3.jpg" alt="Image" class="img-fluid">
+                <img src="Views/assets/images/person_3.jpg" alt="Image" class="img-fluid">
               </figure>
               <h3 class="name">Lukas Devlin</h3>
               <blockquote>
@@ -149,7 +149,7 @@
 
             <div class="testimonial mx-auto">
               <figure class="img-wrap">
-                <img src="assets/images/person_4.jpg" alt="Image" class="img-fluid">
+                <img src="Views/assets/images/person_4.jpg" alt="Image" class="img-fluid">
               </figure>
               <h3 class="name">Kayla Bryant</h3>
               <blockquote>

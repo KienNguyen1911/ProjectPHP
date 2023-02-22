@@ -1,9 +1,9 @@
 <body class="g-sidenav-show  bg-gray-100">
-  <?php require '../layout_admin/aside.php'; ?>
+  <?php require 'Views/admin/layout_admin/aside.php'; ?>
 
   <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
     <!-- Navbar -->
-    <?php require '../layout_admin/navbar.php'; ?>
+    <?php require 'Views/admin/layout_admin/navbar.php'; ?>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
       <div class="row">
@@ -12,7 +12,7 @@
             <div class="col-xl-6 mb-xl-0 mb-4">
               <div class="card bg-transparent shadow-xl">
                 <div class="overflow-hidden position-relative border-radius-xl"
-                  style="background-image: url('../../assets/img/curved-images/curved14.jpg');">
+                  style="background-image: url('Views/assets/img/curved-images/curved14.jpg');">
                   <span class="mask bg-gradient-dark"></span>
                   <div class="card-body position-relative z-index-1 p-3">
                     <i class="fas fa-wifi text-white p-2"></i>
@@ -30,7 +30,7 @@
                         </div>
                       </div>
                       <div class="ms-auto w-20 d-flex align-items-end justify-content-end">
-                        <img class="w-60 mt-2" src="../../assets/img/logos/mastercard.png" alt="logo">
+                        <img class="w-60 mt-2" src="Views/assets/img/logos/mastercard.png" alt="logo">
                       </div>
                     </div>
                   </div>
@@ -88,7 +88,7 @@
                   <div class="row">
                     <div class="col-md-6 mb-md-0 mb-4">
                       <div class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
-                        <img class="w-10 me-3 mb-0" src="../../assets/img/logos/mastercard.png" alt="logo">
+                        <img class="w-10 me-3 mb-0" src="Views/assets/img/logos/mastercard.png" alt="logo">
                         <h6 class="mb-0">****&nbsp;&nbsp;&nbsp;****&nbsp;&nbsp;&nbsp;****&nbsp;&nbsp;&nbsp;7852</h6>
                         <i class="fas fa-pencil-alt ms-auto text-dark cursor-pointer" data-bs-toggle="tooltip"
                           data-bs-placement="top" title="Edit Card"></i>
@@ -96,7 +96,7 @@
                     </div>
                     <div class="col-md-6">
                       <div class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
-                        <img class="w-10 me-3 mb-0" src="../../assets/img/logos/visa.png" alt="logo">
+                        <img class="w-10 me-3 mb-0" src="Views/assets/img/logos/visa.png" alt="logo">
                         <h6 class="mb-0">****&nbsp;&nbsp;&nbsp;****&nbsp;&nbsp;&nbsp;****&nbsp;&nbsp;&nbsp;5248</h6>
                         <i class="fas fa-pencil-alt ms-auto text-dark cursor-pointer" data-bs-toggle="tooltip"
                           data-bs-placement="top" title="Edit Card"></i>
@@ -465,7 +465,7 @@
       </div>
     </div>
   </div>
-  <?php require '../layout_admin/footer.php' ?>
+  <?php require 'Views/admin/layout_admin/footer.php' ?>
 
   <script>
     var win = navigator.platform.indexOf('Win') > -1;

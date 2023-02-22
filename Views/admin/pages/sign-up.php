@@ -1,9 +1,9 @@
-<?php require '../layout_admin/header.php' ?>
+<?php require 'Views/admin/layout_admin/header.php' ?>
 
 <body class="g-sidenav-show  bg-gray-100">
   <section class="min-vh-100 mb-8">
     <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg"
-      style="background-image: url('../../assets/img/curved-images/curved14.jpg');">
+      style="background-image: url('Views/assets/img/curved-images/curved14.jpg');">
       <span class="mask bg-gradient-dark opacity-6"></span>
       <div class="container">
         <div class="row justify-content-center">
@@ -168,7 +168,7 @@
     </div>
   </footer>
   <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
-  <?php require '../layout_admin/footer.php' ?>
+  <?php require 'Views/admin/layout_admin/footer.php' ?>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {

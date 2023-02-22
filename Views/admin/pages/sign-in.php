@@ -1,4 +1,4 @@
-<?php require '../layout_admin/header.php' ?>
+<?php require 'Views/admin/layout_admin/header.php' ?>
 
 <body class="">
 
@@ -45,7 +45,7 @@
             <div class="col-md-6">
               <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
                 <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6"
-                  style="background-image:url('../../assets/img/curved-images/curved6.jpg')"></div>
+                  style="background-image:url('Views/assets/img/curved-images/curved6.jpg')"></div>
               </div>
             </div>
           </div>
@@ -108,7 +108,7 @@
     </div>
   </footer>
   <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
-  <?php require '../layout_admin/footer.php'; ?>
+  <?php require 'Views/admin/layout_admin/footer.php'; ?>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
