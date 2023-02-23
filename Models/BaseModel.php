@@ -15,7 +15,9 @@ class BaseModel implements IAction{
     public function create($data) {
         $conn = DbConnect::connect();
         $key = array_keys($data);
-
+        echo "<pre>";
+        var_dump($data);
+        echo "</pre>";
         $sql = "INSERT INTO $this->table (".implode(',', $key).") VALUES (:".implode(',:', $key).")";
         $stmt = $conn->prepare($sql);
         foreach ($data as $key => $value) {

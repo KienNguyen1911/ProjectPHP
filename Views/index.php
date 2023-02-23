@@ -50,6 +50,7 @@
 						</div>
 					</div>
 				</div>
+				
 				<div class="col-lg-5">
 					<div class="slides">
 						<img src="Views/assets/images/hero-slider-1.jpg" alt="Image" class="img-fluid active">
@@ -58,8 +59,10 @@
 						<img src="Views/assets/images/hero-slider-4.jpg" alt="Image" class="img-fluid">
 						<img src="Views/assets/images/hero-slider-5.jpg" alt="Image" class="img-fluid">
 					</div>
+				
 				</div>
 			</div>
+		
 		</div>
 	</div>
 

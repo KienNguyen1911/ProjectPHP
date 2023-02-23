@@ -6,25 +6,24 @@ class AddressController extends BaseController
     private $district;
     private $ward;
 
-    public function getDistricts()
+    public function districts()
     {
-        var_dump($_POST['id']);
         $this->loadModel('District');
         $this->district = new District();
-        $districts = $this->district->find($_POST['id']);
-        $json = [];
-        while($row = $districts->fetch_assoc()){
-             $json[$row['id']] = $row['name'];
-        }     
-        echo json_encode($json);
-        // $this->view('admin.pages.motels.addMotel', ['districts' => $districts]);
+        $districts = $this->district->getDistricts($_POST['province']);
+        foreach ($districts as $district) {
+            echo "<option value='" . $district['id'] . "'>" . $district['name'] . "</option>";
+        }
     }
 
-    public function getWards()
+    public function wards()
     {
         $this->loadModel('Ward');
-        $wards = $this->ward->show();
-        // $this->view('admin.pages.motels.addMotel', ['wards' => $wards]);
+        $this->ward = new Ward();
+        $wards = $this->ward->getWard($_POST['district']);
+        foreach ($wards as $ward) {
+            echo "<option value='" . $ward['id'] . "'>" . $ward['name'] . "</option>";
+        }
     }
 
 }
