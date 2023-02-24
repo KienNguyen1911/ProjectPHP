@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 23, 2023 at 10:51 AM
+-- Generation Time: Feb 24, 2023 at 01:10 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -99,7 +99,11 @@ CREATE TABLE `attributes` (
 INSERT INTO `attributes` (`id`, `attribute_name`) VALUES
 (1, 'Cafe and Bar'),
 (2, 'KienND'),
-(3, 'HoanLX');
+(3, 'HoanLX'),
+(4, 'Wifi'),
+(5, 'Golf'),
+(6, 'Beach'),
+(7, 'Mountain');
 
 -- --------------------------------------------------------
 
@@ -856,7 +860,23 @@ INSERT INTO `images` (`id`, `image_name`, `motel_id`) VALUES
 (23, 'Views/upload/-18-1-298606751.jpg', 18),
 (24, 'Views/upload/-18-1-298607629.jpg', 18),
 (25, 'Views/upload/-18-1-326679033.jpg', 18),
-(26, 'Views/upload/-18-1-329283675.jpg', 18);
+(26, 'Views/upload/-18-1-329283675.jpg', 18),
+(27, 'Views/upload/-19-1-6414910b-57a2-4394-9286-c71cfd469e55.webp', 19),
+(28, 'Views/upload/-19-1-e189829e-68b7-4339-893b-f71cd8c5a32c.webp', 19),
+(29, 'Views/upload/-19-1-0f5b258b-722a-4f50-b90a-fc43f972b476.webp', 19),
+(30, 'Views/upload/-19-1-f8554229-6b54-4e90-8d50-a7ebc41df1a0.webp', 19),
+(31, 'Views/upload/-19-1-113bd9ea-b92c-4ab1-81cd-13825260e442.webp', 19),
+(32, 'Views/upload/-19-1-d682f7bf-caa4-4433-9038-c5f81a01845b.webp', 19),
+(33, 'Views/upload/-20-1-c68e0ccb-ea8b-45c5-b448-8d9596452377.webp', 20),
+(34, 'Views/upload/-20-1-1b6f9077-e7d5-4a3a-9ed5-1d6226205d32.webp', 20),
+(35, 'Views/upload/-20-1-2d9c0697-6dfe-428b-9200-5183607a1a0f.webp', 20),
+(36, 'Views/upload/-20-1-4f0e67b8-d4fb-47af-bc16-22eba292ca40.webp', 20),
+(37, 'Views/upload/-20-1-649f0021-2013-4949-b05f-feadc190734b.webp', 20),
+(38, 'Views/upload/-21-1-03112bc3-0ca8-463e-b2b3-eb7c8a3aa4f1.webp', 21),
+(39, 'Views/upload/-21-1-387b6ec8-5b2d-4b5b-9138-ca973c9ee276.webp', 21),
+(40, 'Views/upload/-21-1-e2dbeb40-ae3e-427f-87dc-e5b8817801eb.webp', 21),
+(41, 'Views/upload/-21-1-02b3aaeb-4390-4c40-a3ac-81cd697dab48.webp', 21),
+(42, 'Views/upload/-21-1-ab550111-86fb-4b3e-9bcc-d73d6bfcbf85.webp', 21);
 
 -- --------------------------------------------------------
 
@@ -882,7 +902,10 @@ CREATE TABLE `motels` (
 
 INSERT INTO `motels` (`id`, `name`, `price`, `status`, `description`, `province_id`, `district_id`, `ward_id`, `attributes`) VALUES
 (17, 'Luxury stay in Koh Samui, Suratthani, Thailand', '1000', 'Open', 'Full option. Don\'t ask me more !!!', '01', '003', '00097', '1;2'),
-(18, 'Entire home hosted by Marc', '650', 'Open', '                                                Yeah yeah yeah !!!!                                            ', '04', '047', '01471', '1;2;3');
+(18, 'Entire home hosted by Marc', '500', 'Open', '                                                Yeah yeah yeah !!!                                                                                                              ', '04', '047', '01471', '1;2;3'),
+(19, 'Villa VENITY Sky', '300', 'Open', 'Biệt thự Gương sang trọng và có mọi thứ bạn có thể mong đợi từ một chỗ ở thông minh, cao cấp của thế kỷ 21. Nó gây ấn tượng với việc sử dụng các vật liệu hiện đại và đặc biệt, hoàn thiện với sự chú ý tối đa đến các chi tiết và chất lượng, công nghệ sáng tạo và các thiết bị cao cấp.', '01', '018', '00565', '1;5;6'),
+(20, 'Ngôi nhà của một kiến trúc sư (Xanh dương)', '200', 'Open', 'Một phòng riêng trong ngôi nhà 3 tầng trong khuôn viên trường Đại học Nghệ thuật. Quang cảnh mát mẻ với đầy đủ ánh sáng tự nhiên. Một sân hiên bán mở, phòng để đồ ăn với các dụng cụ nấu ăn cơ bản. Rất phù hợp với các cặp đôi, ngươ ̀ i đi du li ̣ ch đặc biệt là những cô gái độc thân yêu nghệ thuật & tìm kiếm một nơi an toàn. Chủ nha ̀ là một kiến trúc sư, người đã thiết kế ngôi nhà dành riêng cho khách Airbnb để bạn có thể đảm bảo mô ̣ t khoa ̉ ng thời gian rất thoải mái và thư giãn. Không nằm trong trung tâm du lịch, ', '01', '001', '00007', '1;2;7'),
+(21, 'Khu phố cổ Phong cảnh sinh thái', '200', 'Open', 'Pana Homey - một homestay nằm ở một trong những con phố đẹp nhất của Hà Nội.\r\n\r\nCăn hộ của chúng tôi được thiết kế tốt với phong cách Scandinavia và hiện đại, trang trí với nội thất và thiết bị cao cấp và hữu ích. Bên cạnh đó, nó có máy điều hòa không khí, nhà vệ sinh riêng, ban công lớn với tầm nhìn thành phố tuyệt đẹp và nhà bếp được trang bị đầy đủ tiện nghi. Pana Homey chắc chắn đáp ứng nhu cầu của bạn về một kỳ nghỉ ', '01', '007', '00262', '1;2;3;4');
 
 -- --------------------------------------------------------
 
@@ -11701,19 +11724,19 @@ ALTER TABLE `wards`
 -- AUTO_INCREMENT for table `attributes`
 --
 ALTER TABLE `attributes`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `motels`
 --
 ALTER TABLE `motels`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `users`

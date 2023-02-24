@@ -18,4 +18,8 @@ class ImageController extends BaseController {
         header('Location: index.php?controller=motel$action=index' );
     }
     
+    public function getFirst() {
+        $images = $this->image->getOneImage($_GET['id']);
+        return $images;
+    }
 }

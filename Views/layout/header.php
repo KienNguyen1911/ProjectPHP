@@ -57,7 +57,7 @@
                             <li><a href="#">Menu Three</a></li>
                         </ul>
                     </li>
-                    <li><a href="index.php?controller=page&action=motels">Motels</a></li>
+                    <li><a href="index.php?controller=motel&action=showMotelPage">Motels</a></li>
                     <li><a href="index.php?controller=page&action=services">Services</a></li>
                     <li class="active"><a href="index.php?controller=page&action=about">About</a></li>
                     <li><a href="index.php?controller=page&action=contact">Contact Us</a></li>

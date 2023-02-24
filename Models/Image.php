@@ -12,7 +12,7 @@ class Image extends BaseModel {
         $array = $_FILES["images"]["name"];
 
         // validate form upload image png, jpg, jpeg, jfif
-        $valid_extensions = array('jpeg', 'jpg', 'png', 'jfif');
+        $valid_extensions = array('jpeg', 'jpg', 'png', 'jfif', 'webp');
         foreach ($array as $key => $value) {
             $ext = strtolower(pathinfo($array[$key], PATHINFO_EXTENSION));
             if (!in_array($ext, $valid_extensions)) {
@@ -36,7 +36,7 @@ class Image extends BaseModel {
 
     public function getOneImage($id) {
         $conn = DbConnect::connect();
-        $sql = "SELECT * FROM images WHERE motel_id = $id";
+        $sql = "SELECT * FROM images WHERE motel_id = $id LIMIT 1";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetch();

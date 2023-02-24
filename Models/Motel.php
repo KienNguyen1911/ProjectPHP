@@ -55,5 +55,7 @@ class Motel extends BaseModel{
         
         $stmt->execute();
     }
+
+    
     
 }

@@ -11,7 +11,7 @@ class MotelController extends BaseController
         $this->motel = new Motel();
     }
 
-    public function index()
+    public function index() // admin motels
     {
         $conn = DbConnect::connect();
         // inner join
@@ -20,7 +20,7 @@ class MotelController extends BaseController
             INNER JOIN provinces ON motels.province_id = provinces.id 
             INNER JOIN districts ON motels.district_id = districts.id 
             INNER JOIN wards ON motels.ward_id = wards.id";
-        
+
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -31,7 +31,7 @@ class MotelController extends BaseController
         );
     }
 
-    public function add()
+    public function add() // create motel admin
     {
         $this->loadModel('Attr');
         $attribute = new Attr();
@@ -50,16 +50,13 @@ class MotelController extends BaseController
         );
     }
 
-    public function create()
+    public function create() // 
     {
-        echo "<pre>";
-        var_dump($_FILES);
-        echo "</pre>";
         $attributes = implode(';', $_POST['attribute']);
 
         $motel = [
             'name' => $_POST['name'],
-            'price' => (int)$_POST['price'],
+            'price' => (int) $_POST['price'],
             'description' => $_POST['description'],
             'status' => $_POST['status'],
             'province_id' => $_POST['province'],
@@ -73,7 +70,8 @@ class MotelController extends BaseController
         header('Location: index.php?controller=motel&action=index');
     }
 
-    public function edit() {
+    public function edit() // edit motel admin
+    {
         $motel = $this->motel->find($_GET['id']);
         // $this->debug($motel);
         $attr = explode(';', $motel['attributes']);
@@ -101,12 +99,13 @@ class MotelController extends BaseController
         );
     }
 
-    public function update() {
+    public function update()
+    {
         $this->debug($_POST);
         $attributes = implode(';', $_POST['attribute']);
         $motel = [
             'name' => $_POST['name'],
-            'price' => (int)$_POST['price'],
+            'price' => (int) $_POST['price'],
             'description' => $_POST['description'],
             'status' => $_POST['status'],
             'province_id' => $_POST['province'],
@@ -119,7 +118,8 @@ class MotelController extends BaseController
         header('Location: index.php?controller=motel&action=index');
     }
 
-    public function delete() {
+    public function delete() // delete motel admin
+    {
         // unlink image by name of image in database
         $this->loadModel('Image');
         $image = new Image();
@@ -131,27 +131,53 @@ class MotelController extends BaseController
         $this->motel->delete($_GET['id']);
         header('Location: index.php?controller=motel&action=index');
     }
-    
-    public function showMotelPage() {
-        // motel with image and address
+
+    public function showMotelPage() // show motel page
+    {
         $conn = DbConnect::connect();
 
-        $sql = "SELECT motels.*, provinces.name as province_name, districts.name as district_name, wards.name as ward_name, images.image_name
+        $sql = "SELECT motels.*, provinces.name as province_name, districts.name as district_name, wards.name as ward_name
             FROM motels 
             INNER JOIN provinces ON motels.province_id = provinces.id 
             INNER JOIN districts ON motels.district_id = districts.id 
-            INNER JOIN wards ON motels.ward_id = wards.id
-            INNER JOIN images ON motels.id = images.motel_id
-            WHERE motels.id = :id";
+            INNER JOIN wards ON motels.ward_id = wards.id";
 
         $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':id', $_GET['id']);
         $stmt->execute();
-        $motel = $stmt->fetch(PDO::FETCH_ASSOC);
+        $motels = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $this->loadModel('Image');
+        $image = new Image();
+        $images = $image->show();
 
         $this->view(
-            'motel',
-            ['motel' => $motel]
+            'motels',
+            ['motels' => $motels, 'images' => $images]
+        );
+    }
+
+    public function motelImage($motel)
+    {
+        $conn = DbConnect::connect();
+        $sql = "SELECT * FROM images WHERE motel_id = $motel[id] LIMIT 1";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $image = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $image;
+    }
+
+    public function motelDetail()
+    {
+        $motels = $this->motel->find($_GET['id']);
+        // $this->debug($motels);
+
+        $this->loadModel('Image');
+        $image = new Image();
+        $images = $image->getAllImage($_GET['id']);
+        // $this->debug($images);
+        $this->view(
+            'motel-details',
+            ['motels' => $motels, 'images' => $images]
         );
     }
 }
