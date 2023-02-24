@@ -27,5 +27,14 @@ class PageController extends BaseController
         $this->view('elements');
     }
 
+    public function login()
+    {
+        $this->view('admin.pages.sign-in');
+    }
+
+    public function signup()
+    {
+        $this->view('admin.pages.sign-up');
+    }
     
 }

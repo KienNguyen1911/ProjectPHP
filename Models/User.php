@@ -19,4 +19,6 @@ class User extends BaseModel {
         var_dump($stmt->fetch(PDO::FETCH_ASSOC));
         // return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+
 }

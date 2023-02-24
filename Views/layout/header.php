@@ -41,27 +41,23 @@
 
                 <ul class="js-clone-nav d-none d-lg-inline-block text-left site-menu float-right">
                     <li><a href="index.php?controller=page&action=index">Home</a></li>
-                    <li class="has-children">
-                        <a href="#">Dropdown</a>
-                        <ul class="dropdown">
-                            <li><a href="index.php?controller=page&action=elements">Elements</a></li>
-                            <li><a href="#">Menu One</a></li>
-                            <li class="has-children">
-                                <a href="#">Menu Two</a>
-                                <ul class="dropdown">
-                                    <li><a href="#">Sub Menu One</a></li>
-                                    <li><a href="#">Sub Menu Two</a></li>
-                                    <li><a href="#">Sub Menu Three</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Menu Three</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="index.php?controller=page&action=elements">Elements</a></li>
                     <li><a href="index.php?controller=motel&action=showMotelPage">Motels</a></li>
                     <li><a href="index.php?controller=page&action=services">Services</a></li>
                     <li class="active"><a href="index.php?controller=page&action=about">About</a></li>
                     <li><a href="index.php?controller=page&action=contact">Contact Us</a></li>
-                    <li><a href="index.php?controller=page&action=contact">Log In</a></li>
+                    <?php if (isset($_SESSION['user'])) : ?>
+                        <li class="has-children">
+                            <a href="#"><?php echo $_SESSION['user']['username'] ?></a>
+                            <ul class="dropdown">
+                                <li><a href="index.php?controller=page&action=elements">Elements</a></li>
+                                <li><a href="#">Menu One</a></li>
+                                <li><a href="index.php?controller=login&action=signOut">Log Out</a></li>
+                            </ul>
+                        </li>
+                    <?php else : ?>
+                        <li><a href="index.php?controller=page&action=login">Log In</a></li>
+                    <?php endif; ?>
                 </ul>
 
                 <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none light" data-toggle="collapse" data-target="#main-navbar">

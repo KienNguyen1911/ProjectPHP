@@ -13,13 +13,15 @@ class LoginController extends BaseController {
         $this->loadModel('User');
         $user = new User();
         $check = $user->login($username, $password);
-
-        // var_dump($check);
-
+        
         if ($check) {
             $_SESSION['user'] = $check;
-            // var_dump($_SESSION['user']['username']);
-            header('Location: index.php?controller=admin&action=dashboard');
+            $this->debug($_SESSION['user']);
+            if (self::isAdmin() || self::isOwner()) {
+                header('Location: index.php?controller=admin&action=dashboard');
+            } else {
+                header('Location: index.php?controller=page&action=index');
+            }
         } else {
             $message = 'Sai tài khoản hoặc mật khẩu';
             $_SESSION['message'] = $message;
@@ -49,5 +51,28 @@ class LoginController extends BaseController {
     public function logout() {
         unset($_SESSION['user']);
         header('Location: index.php?controller=login&action=showFormLogin');
+    }
+
+    public function isAdmin() {
+        if (isset($_SESSION['user'])) {
+            if ($_SESSION['user']['role'] == "admin") {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function isOwner() {
+        if (isset($_SESSION['user'])) {
+            if ($_SESSION['user']['role'] == "owner") {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function signOut () {
+        unset($_SESSION['user']);
+        header('Location: index.php?controller=page&action=login');
     }
 }

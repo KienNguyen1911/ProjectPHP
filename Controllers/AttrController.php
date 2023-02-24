@@ -10,8 +10,6 @@ class AttrController extends BaseController
     }
     public function attributes()
     {
-        // echo "attributes";
-
         $attributes = $this->attribute->show();
         // var_dump($attributes);
         $this->view('admin.pages.attributes.listAttribute',
@@ -50,5 +48,14 @@ class AttrController extends BaseController
     {
         $this->attribute->delete($_GET['id']);
         header('Location: index.php?controller=attr&action=attributes');
+    }
+
+    public function findAttr($data)
+    {
+        $conn = DbConnect::connect();
+        $sql = "SELECT * FROM attributes WHERE id = $data";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        
     }
 }

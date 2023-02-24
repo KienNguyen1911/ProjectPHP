@@ -168,8 +168,23 @@ class MotelController extends BaseController
 
     public function motelDetail()
     {
-        $motels = $this->motel->find($_GET['id']);
-        // $this->debug($motels);
+        $conn = DbConnect::connect();
+
+        $sql = "SELECT motels.*, provinces.name as province_name, districts.name as district_name, wards.name as ward_name
+            FROM motels 
+            INNER JOIN provinces ON motels.province_id = provinces.id 
+            INNER JOIN districts ON motels.district_id = districts.id 
+            INNER JOIN wards ON motels.ward_id = wards.id
+            WHERE motels.id = " . $_GET['id'];
+
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $motels = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $attrMotel = explode(';', $motels[0]['attributes']);
+        // $this->debug($attrMotel);
+        $this->loadModel('Attr');
+        $attribute = new Attr();
 
         $this->loadModel('Image');
         $image = new Image();
@@ -177,7 +192,7 @@ class MotelController extends BaseController
         // $this->debug($images);
         $this->view(
             'motel-details',
-            ['motels' => $motels, 'images' => $images]
+            ['motels' => $motels, 'images' => $images, 'attrMotel' => $attrMotel, 'attribute' => $attribute]
         );
     }
 }

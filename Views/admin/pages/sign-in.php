@@ -54,7 +54,7 @@ require 'Views/admin/layout_admin/header.php' ;
                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                   <p class="mb-4 text-sm mx-auto">
                     Don't have an account?
-                    <a href="index.php?controller=admin&action=signup" class="text-info text-gradient font-weight-bold">Sign up</a>
+                    <a href="index.php?controller=page&action=signup" class="text-info text-gradient font-weight-bold">Sign up</a>
                   </p>
                 </div>
 
