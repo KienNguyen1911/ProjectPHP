@@ -36,5 +36,10 @@ class PageController extends BaseController
     {
         $this->view('admin.pages.sign-up');
     }
+
+    public function bookings()
+    {
+        $this->view('bookings');
+    }
     
 }

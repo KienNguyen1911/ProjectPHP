@@ -23,7 +23,7 @@ require 'Views/admin/layout_admin/header.php';
         <div class="container">
             <div class="row">
 
-                <?php foreach ($motels as $motel):
+                <?php foreach ($motels as $motel) :
                     $imageMotel = $this->motelImage($motel); ?>
 
                     <div class="col-lg-3 col-md-4 col-sm-1">
@@ -34,10 +34,9 @@ require 'Views/admin/layout_admin/header.php';
                                 </a>
                             </div>
 
-                            <div class="card-body pt-2 d-flex"
-                                style="flex-direction: column; justify-content: space-evenly;">
+                            <div class="card-body pt-2 d-flex" style="flex-direction: column; justify-content: space-evenly;">
                                 <span class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2"><?php
-                                echo $motel['province_name'] ?></span>
+                                                                                                                        echo $motel['province_name'] ?></span>
                                 <a href="index.php?controller=motel&action=motelDetail&id=<?php echo $motel['id'] ?>" class="card-title h5 d-block text-darker">
                                     <?php echo $motel['name'] ?>
                                 </a>
@@ -47,10 +46,11 @@ require 'Views/admin/layout_admin/header.php';
                                             <?php echo $motel['price'] ?>/night
                                         </span>
                                         <div class="stats">
-                                            <small>Posted on 28 February</small>
+                                            <small>Posted on <?php $user = $users->find($motel['owner_id']); echo $user['username'] ?></small>
                                         </div>
                                     </div>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>

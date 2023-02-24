@@ -5,7 +5,7 @@ class DbConnect
     {
         $host = "localhost";
         $username = "root";
-        $dbName = "btl_php";
+        $dbName = "btl_php1";
         $dsn = "mysql:host=" . $host . ";dbname=" . $dbName;
         $password = "";
         $pdo = new PDO($dsn, $username, $password);

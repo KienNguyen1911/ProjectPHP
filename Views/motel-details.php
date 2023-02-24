@@ -1,4 +1,8 @@
 <?php require 'layout/header.php' ?>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
 <body>
     <div class="hero hero-inner" style="padding: 0 0 5rem 0; ">
@@ -43,6 +47,11 @@
                                     <?php endforeach; ?>
                                 </ul>
                             </div>
+                            <div class="services">
+                                <h5>Owner: <?php $user = $users->find($motels[0]['owner_id']);
+                                            echo $user['username'] ?></h5>
+                                <h5>Contact: <?php echo $user['phonenumber'] ?></h5>
+                            </div>
                         </div>
 
                     </div>
@@ -57,10 +66,19 @@
                         </div>
 
                         <div class="card-body">
-                            <div class="my-3">
-                                <input type="text" class="form-control" name="daterange">
-                            </div>
-                            <input type="submit" class="btn btn-primary btn-block" value="Search">
+                            <form action="index.php?controller=booking&action=create&id=<?php echo $motels[0]['id'] ?>" method="post">
+
+                                <div class="my-3">
+                                    <h4>Day In</h4>
+                                    <input type="text" class="daterange form-control" name="start">
+                                </div>
+                                <div class="my-3">
+                                    <h4>Day Out</h4>
+                                    <input type="text" class="daterange form-control" name="end">
+                                </div>
+                                <input type="submit" class="btn btn-primary btn-block" value="Search">
+
+                            </form>
 
                         </div>
 
@@ -69,14 +87,30 @@
             </div>
         </div>
     </div>
-    <?php require 'layout/footer.php' ?>
     <script>
         $(function() {
-            $('input[name="daterange"]').daterangepicker({
-                opens: 'left'
-            }, function(start, end, label) {
-                console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+            $(".daterange").daterangepicker({
+                autoUpdateInput: false,
+                locale: {
+                    cancelLabel: "Clear",
+                },
+                minDate: moment().subtract(0, "days"),
+
             });
+
+            $(".daterange").on("apply.daterangepicker", function(ev, picker) {
+                $('input[name="start"]').val(picker.startDate.format("YYYY-MM-DD"));
+                $('input[name="end"]').val(picker.endDate.format("YYYY-MM-DD"));
+            });
+
+            $('input[name="start"], input[name="end"] ').on(
+                "cancel.daterangepicker",
+                function(ev, picker) {
+                    $(this).val("");
+                }
+            );
+
         });
     </script>
+    <?php require 'layout/footer.php' ?>
 </body>

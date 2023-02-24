@@ -19,7 +19,8 @@ class MotelController extends BaseController
             FROM motels 
             INNER JOIN provinces ON motels.province_id = provinces.id 
             INNER JOIN districts ON motels.district_id = districts.id 
-            INNER JOIN wards ON motels.ward_id = wards.id";
+            INNER JOIN wards ON motels.ward_id = wards.id
+            WHERE motels.owner_id = " . $_SESSION['user']['id'];
 
         $stmt = $conn->prepare($sql);
         $stmt->execute();
@@ -52,22 +53,28 @@ class MotelController extends BaseController
 
     public function create() // 
     {
-        $attributes = implode(';', $_POST['attribute']);
+        $this->debug($_SESSION['user']['id']);
+        if ($_SESSION['user']['role'] == 'owner' || $_SESSION['user']['role'] == 'admin') {
+            $attributes = implode(';', $_POST['attribute']);
 
-        $motel = [
-            'name' => $_POST['name'],
-            'price' => (int) $_POST['price'],
-            'description' => $_POST['description'],
-            'status' => $_POST['status'],
-            'province_id' => $_POST['province'],
-            'district_id' => $_POST['district'],
-            'ward_id' => $_POST['ward'],
-            'attributes' => $attributes,
-        ];
-        $id = $this->motel->createMotel($motel);
-        $image = new ImageController();
-        $image->create($id);
-        header('Location: index.php?controller=motel&action=index');
+            $motel = [
+                'name' => $_POST['name'],
+                'price' => (int) $_POST['price'],
+                'description' => $_POST['description'],
+                'status' => $_POST['status'],
+                'province_id' => $_POST['province'],
+                'district_id' => $_POST['district'],
+                'ward_id' => $_POST['ward'],
+                'attributes' => $attributes,
+                'owner_id' => $_SESSION['user']['id'],
+            ];
+            $id = $this->motel->createMotel($motel);
+            $image = new ImageController();
+            $image->create($id);
+            header('Location: index.php?controller=motel&action=index');
+        } else {
+            header('Location: index.php?controller=login&action=login');
+        }
     }
 
     public function edit() // edit motel admin
@@ -140,7 +147,8 @@ class MotelController extends BaseController
             FROM motels 
             INNER JOIN provinces ON motels.province_id = provinces.id 
             INNER JOIN districts ON motels.district_id = districts.id 
-            INNER JOIN wards ON motels.ward_id = wards.id";
+            INNER JOIN wards ON motels.ward_id = wards.id
+            INNER JOIN users ON motels.owner_id = users.id";
 
         $stmt = $conn->prepare($sql);
         $stmt->execute();
@@ -150,9 +158,12 @@ class MotelController extends BaseController
         $image = new Image();
         $images = $image->show();
 
+        $this->loadModel('User');
+        $users = new User();
+
         $this->view(
             'motels',
-            ['motels' => $motels, 'images' => $images]
+            ['motels' => $motels, 'images' => $images, 'users' => $users]
         );
     }
 
@@ -190,9 +201,13 @@ class MotelController extends BaseController
         $image = new Image();
         $images = $image->getAllImage($_GET['id']);
         // $this->debug($images);
+
+        $this->loadModel('User');
+        $users = new User();
+
         $this->view(
             'motel-details',
-            ['motels' => $motels, 'images' => $images, 'attrMotel' => $attrMotel, 'attribute' => $attribute]
+            ['motels' => $motels, 'images' => $images, 'attrMotel' => $attrMotel, 'attribute' => $attribute, 'users' => $users]
         );
     }
 }

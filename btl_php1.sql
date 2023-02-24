@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `btl_php`
+-- Database: `btl_php1`
 --
 
 -- --------------------------------------------------------
@@ -105,6 +105,29 @@ INSERT INTO `attributes` (`id`, `attribute_name`) VALUES
 (6, 'Beach'),
 (7, 'Mountain'),
 (8, 'air-conditioner 2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bookings`
+--
+
+CREATE TABLE `bookings` (
+  `id` int UNSIGNED NOT NULL,
+  `user_id` int UNSIGNED NOT NULL,
+  `motel_id` int UNSIGNED NOT NULL,
+  `start` date NOT NULL,
+  `end` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `bookings`
+--
+
+INSERT INTO `bookings` (`id`, `user_id`, `motel_id`, `start`, `end`) VALUES
+(1, 1, 18, '2023-03-13', '2023-03-25'),
+(2, 1, 20, '2023-03-14', '2023-03-16'),
+(3, 1, 19, '2023-03-14', '2023-03-16');
 
 -- --------------------------------------------------------
 
@@ -877,7 +900,16 @@ INSERT INTO `images` (`id`, `image_name`, `motel_id`) VALUES
 (39, 'Views/upload/-21-1-387b6ec8-5b2d-4b5b-9138-ca973c9ee276.webp', 21),
 (40, 'Views/upload/-21-1-e2dbeb40-ae3e-427f-87dc-e5b8817801eb.webp', 21),
 (41, 'Views/upload/-21-1-02b3aaeb-4390-4c40-a3ac-81cd697dab48.webp', 21),
-(42, 'Views/upload/-21-1-ab550111-86fb-4b3e-9bcc-d73d6bfcbf85.webp', 21);
+(42, 'Views/upload/-21-1-ab550111-86fb-4b3e-9bcc-d73d6bfcbf85.webp', 21),
+(43, 'Views/upload/-22-1-21865511.jpg', 22),
+(44, 'Views/upload/-22-1-21865526.jpg', 22),
+(45, 'Views/upload/-22-1-292012126.jpg', 22),
+(46, 'Views/upload/-22-1-13882381.jpg', 22),
+(47, 'Views/upload/-23-1-415583101.jpg', 23),
+(48, 'Views/upload/-23-1-415583109.jpg', 23),
+(49, 'Views/upload/-23-1-415583070.jpg', 23),
+(50, 'Views/upload/-23-1-417144932.jpg', 23),
+(51, 'Views/upload/-23-1-415583106.jpg', 23);
 
 -- --------------------------------------------------------
 
@@ -894,19 +926,43 @@ CREATE TABLE `motels` (
   `province_id` varchar(20) NOT NULL,
   `district_id` varchar(20) NOT NULL,
   `ward_id` varchar(20) NOT NULL,
-  `attributes` varchar(200) NOT NULL
+  `attributes` varchar(200) NOT NULL,
+  `owner_id` int UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `motels`
 --
 
-INSERT INTO `motels` (`id`, `name`, `price`, `status`, `description`, `province_id`, `district_id`, `ward_id`, `attributes`) VALUES
-(17, 'Luxury stay in Koh Samui, Suratthani, Thailand', '1000', 'Open', 'Full option. Don\'t ask me more !!!', '01', '003', '00097', '1;2'),
-(18, 'Entire home hosted by Marc', '500', 'Open', '                                                Yeah yeah yeah !!!                                                                                                              ', '04', '047', '01471', '1;2;3'),
-(19, 'Villa VENITY Sky', '300', 'Open', 'Biệt thự Gương sang trọng và có mọi thứ bạn có thể mong đợi từ một chỗ ở thông minh, cao cấp của thế kỷ 21. Nó gây ấn tượng với việc sử dụng các vật liệu hiện đại và đặc biệt, hoàn thiện với sự chú ý tối đa đến các chi tiết và chất lượng, công nghệ sáng tạo và các thiết bị cao cấp.', '01', '018', '00565', '1;5;6'),
-(20, 'Ngôi nhà của một kiến trúc sư (Xanh dương)', '200', 'Open', 'Một phòng riêng trong ngôi nhà 3 tầng trong khuôn viên trường Đại học Nghệ thuật. Quang cảnh mát mẻ với đầy đủ ánh sáng tự nhiên. Một sân hiên bán mở, phòng để đồ ăn với các dụng cụ nấu ăn cơ bản. Rất phù hợp với các cặp đôi, ngươ ̀ i đi du li ̣ ch đặc biệt là những cô gái độc thân yêu nghệ thuật & tìm kiếm một nơi an toàn. Chủ nha ̀ là một kiến trúc sư, người đã thiết kế ngôi nhà dành riêng cho khách Airbnb để bạn có thể đảm bảo mô ̣ t khoa ̉ ng thời gian rất thoải mái và thư giãn. Không nằm trong trung tâm du lịch, ', '01', '001', '00007', '1;2;7'),
-(21, 'Khu phố cổ Phong cảnh sinh thái', '200', 'Open', 'Pana Homey - một homestay nằm ở một trong những con phố đẹp nhất của Hà Nội.\r\n\r\nCăn hộ của chúng tôi được thiết kế tốt với phong cách Scandinavia và hiện đại, trang trí với nội thất và thiết bị cao cấp và hữu ích. Bên cạnh đó, nó có máy điều hòa không khí, nhà vệ sinh riêng, ban công lớn với tầm nhìn thành phố tuyệt đẹp và nhà bếp được trang bị đầy đủ tiện nghi. Pana Homey chắc chắn đáp ứng nhu cầu của bạn về một kỳ nghỉ ', '01', '007', '00262', '1;2;3;4');
+INSERT INTO `motels` (`id`, `name`, `price`, `status`, `description`, `province_id`, `district_id`, `ward_id`, `attributes`, `owner_id`) VALUES
+(17, 'Luxury stay in Koh Samui, Suratthani, Thailand', '1000', 'Open', 'Full option. Don\'t ask me more !!!', '01', '003', '00097', '1;2', 5),
+(18, 'Entire home hosted by Marc', '500', 'Open', '                                                Yeah yeah yeah !!!                                                                                                              ', '04', '047', '01471', '1;2;3', 5),
+(19, 'Villa VENITY Sky', '350', 'Open', '                                                                                                Biệt thự Gương sang trọng và có mọi thứ bạn có thể mong đợi từ một chỗ ở thông minh, cao cấp của thế kỷ 21. Nó gây ấn tượng với việc sử dụng các vật liệu hiện đại và đặc biệt, hoàn thiện với sự chú ý tối đa đến các chi tiết và chất lượng, công nghệ sáng tạo và các thiết bị cao cấp.                                                                                        ', '01', '018', '00565', '1;5;6', 6),
+(20, 'Ngôi nhà của một kiến trúc sư (Xanh dương)', '200', 'Open', 'Một phòng riêng trong ngôi nhà 3 tầng trong khuôn viên trường Đại học Nghệ thuật. Quang cảnh mát mẻ với đầy đủ ánh sáng tự nhiên. Một sân hiên bán mở, phòng để đồ ăn với các dụng cụ nấu ăn cơ bản. Rất phù hợp với các cặp đôi, ngươ ̀ i đi du li ̣ ch đặc biệt là những cô gái độc thân yêu nghệ thuật & tìm kiếm một nơi an toàn. Chủ nha ̀ là một kiến trúc sư, người đã thiết kế ngôi nhà dành riêng cho khách Airbnb để bạn có thể đảm bảo mô ̣ t khoa ̉ ng thời gian rất thoải mái và thư giãn. Không nằm trong trung tâm du lịch, ', '01', '001', '00007', '1;2;7', 6),
+(21, 'Khu phố cổ Phong cảnh sinh thái', '200', 'Open', 'Pana Homey - một homestay nằm ở một trong những con phố đẹp nhất của Hà Nội.\r\n\r\nCăn hộ của chúng tôi được thiết kế tốt với phong cách Scandinavia và hiện đại, trang trí với nội thất và thiết bị cao cấp và hữu ích. Bên cạnh đó, nó có máy điều hòa không khí, nhà vệ sinh riêng, ban công lớn với tầm nhìn thành phố tuyệt đẹp và nhà bếp được trang bị đầy đủ tiện nghi. Pana Homey chắc chắn đáp ứng nhu cầu của bạn về một kỳ nghỉ ', '01', '007', '00262', '1;2;3;4', 6),
+(22, 'Gite La Gernelle', '300', 'Open', 'Located in the Bouillon Forest, guest house Gîte La Gernelle offers a well-equipped holiday home with a balcony offering panoramic views over the surroundings. Bouillon is 0.6 mi away.\r\n\r\nExposed wooden beams are featured throughout the accommodations. A seating area is set-up around the flat-screen TV. The bathroom is fitted with a shower.\r\n\r\nYou can prepare meals in the kitchen which is fitted with a stove, oven, microwave and refrigerator. There are several restaurants within 4 minutes by car from Gîte La Gernelle.\r\n\r\nA garden and terrace are featured on site to relax. For children a playground is available. There are several hiking and cycling routes within 2953 foot.\r\n\r\nKarting is possible at 1.2 mi from the guest house. The castle is 0.6 mi away. A swimming pool is located within 656 foot from Gîte La Gernelle.\r\n\r\nCouples in particular like the location – they rated it 9.4 for a two-person trip.', '01', '002', '00040', '2;3;5;7', 5),
+(23, 'Landmark Plus Luxury - Vinhomes Central Park', '200', 'Open', 'You\'re eligible for a Genius discount at Landmark Plus Luxury - Vinhomes Central Park! To save at this property, all you have to do is sign in.\r\n\r\nOffering pool views, Landmark Plus Luxury - Vinhomes Central Park in Ho Chi Minh City has accommodations, an outdoor swimming pool, a garden, a shared lounge and a bar. The accommodations are air-conditioned and has a private pool, a hot tub and a spa bath.\r\n\r\nThe condo hotel provides guests with a terrace, city views, a seating area, satellite flat-screen TV, a fully equipped kitchen with a fridge and a microwave, and a private bathroom with bidet and free toiletries. Some units have a balcony and/or a patio with river or garden views.\r\n\r\nBoth a bicycle rental service and a car rental service are available at Landmark Plus Luxury - Vinhomes Central Park, while hiking can be enjoyed nearby.\r\n\r\nVietnam History Museum is 4 km from the accommodation, while Diamond Plaza is 5.1 km from the property. The nearest airport is Tan Son Nhat International, 8 km from Landmark Plus Luxury - Vinhomes Central Park, and the property offers a paid airport shuttle service.', '01', '002', '00043', '1;2', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int UNSIGNED NOT NULL,
+  `booking_id` int UNSIGNED NOT NULL,
+  `total` int UNSIGNED NOT NULL,
+  `created_at` timestamp NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `booking_id`, `total`, `created_at`) VALUES
+(1, 2, 400, '2023-02-23 17:00:00'),
+(2, 3, 700, '2023-02-24 03:48:53');
 
 -- --------------------------------------------------------
 
@@ -1018,7 +1074,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `age`, `phonenumber`, `role`, `avatar`) VALUES
 (1, 'admin', '5b5f61893a41721b8906582b47f2fb1c', 'ngkien1911@gmail.com', NULL, '12341342', 'admin', NULL),
 (4, 'normal', '81dc9bdb52d04dc20036dbd8313ed055', 'normal@gmail.com', NULL, '0912341234', 'customer', NULL),
-(5, 'kiennd', '81dc9bdb52d04dc20036dbd8313ed055', 'ngkien1911@gmail.co', NULL, '12341234', 'owner', NULL);
+(5, 'kiennd', '81dc9bdb52d04dc20036dbd8313ed055', 'ngkien1911@gmail.co', NULL, '12341234', 'owner', NULL),
+(6, 'kiennd1324', '81dc9bdb52d04dc20036dbd8313ed055', 'ngkien1911@gmail.com', NULL, '12341342', 'owner', NULL);
 
 -- --------------------------------------------------------
 
@@ -11684,6 +11741,14 @@ ALTER TABLE `attributes`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `bookings`
+--
+ALTER TABLE `bookings`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `motel_id` (`motel_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `districts`
 --
 ALTER TABLE `districts`
@@ -11703,6 +11768,13 @@ ALTER TABLE `images`
 --
 ALTER TABLE `motels`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `booking_id` (`booking_id`);
 
 --
 -- Indexes for table `provinces`
@@ -11737,26 +11809,45 @@ ALTER TABLE `attributes`
   MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT for table `bookings`
+--
+ALTER TABLE `bookings`
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `motels`
 --
 ALTER TABLE `motels`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `bookings`
+--
+ALTER TABLE `bookings`
+  ADD CONSTRAINT `bookings_ibfk_1` FOREIGN KEY (`motel_id`) REFERENCES `motels` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `bookings_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `districts`
@@ -11770,6 +11861,12 @@ ALTER TABLE `districts`
 --
 ALTER TABLE `images`
   ADD CONSTRAINT `images_ibfk_1` FOREIGN KEY (`motel_id`) REFERENCES `motels` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`booking_id`) REFERENCES `bookings` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `provinces`

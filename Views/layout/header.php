@@ -51,7 +51,12 @@
                             <a href="#"><?php echo $_SESSION['user']['username'] ?></a>
                             <ul class="dropdown">
                                 <li><a href="index.php?controller=page&action=elements">Elements</a></li>
-                                <li><a href="#">Menu One</a></li>
+                                <?php 
+                                    if ($_SESSION['user']['role'] == "admin" || $_SESSION['user']['role'] == "owner") {
+                                        echo '<li><a href="index.php?controller=booking&action=getBookingsByUserId">Your Bookings</a></li>';
+                                        echo '<li><a href="index.php?controller=admin&action=dashboard">Admin Page</a></li>';
+                                    }
+                                ?>
                                 <li><a href="index.php?controller=login&action=signOut">Log Out</a></li>
                             </ul>
                         </li>

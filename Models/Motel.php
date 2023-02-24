@@ -10,8 +10,8 @@ class Motel extends BaseModel{
     public function createMotel($motel) {
         $conn = DbConnect::connect();
 
-        $sql = "INSERT INTO motels (name, price, description, status, province_id, district_id, ward_id, attributes) 
-                VALUES (:name, :price, :description, :status, :province_id, :district_id, :ward_id, :attributes)";
+        $sql = "INSERT INTO motels (name, price, description, status, province_id, district_id, ward_id, attributes, owner_id) 
+                VALUES (:name, :price, :description, :status, :province_id, :district_id, :ward_id, :attributes, :owner_id)";
 
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':name', $motel['name']);
@@ -22,7 +22,8 @@ class Motel extends BaseModel{
         $stmt->bindParam(':district_id', $motel['district_id']);
         $stmt->bindParam(':ward_id', $motel['ward_id']);
         $stmt->bindParam(':attributes', $motel['attributes']);
-        
+        $stmt->bindParam(':owner_id', $motel['owner_id']);
+
         $stmt->execute();
 
         $id = $conn->lastInsertId();
