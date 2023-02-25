@@ -20,8 +20,6 @@ class User extends BaseModel {
         $sql = "INSERT INTO " . self::TABLE . " (username, password, email, phonenumber, role) VALUES ('$username', '$password', '$email', '$phonenumber', '$role')";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
-        var_dump($stmt->fetch(PDO::FETCH_ASSOC));
-        // return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
 

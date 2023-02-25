@@ -12,6 +12,7 @@ class MotelController extends BaseController
     }
 
     public function index() // admin motels
+
     {
         $conn = DbConnect::connect();
         // inner join
@@ -33,6 +34,7 @@ class MotelController extends BaseController
     }
 
     public function add() // create motel admin
+
     {
         $this->loadModel('Attr');
         $attribute = new Attr();
@@ -42,7 +44,6 @@ class MotelController extends BaseController
         $province = new Province();
         $provinces = $province->show();
 
-        // var_dump($provinces);
         $motels = $this->motel->show();
 
         $this->view(
@@ -51,7 +52,8 @@ class MotelController extends BaseController
         );
     }
 
-    public function create() // 
+    public function create() 
+
     {
         $this->debug($_SESSION['user']['id']);
         if ($_SESSION['user']['role'] == 'owner' || $_SESSION['user']['role'] == 'admin') {
@@ -78,11 +80,10 @@ class MotelController extends BaseController
     }
 
     public function edit() // edit motel admin
+
     {
         $motel = $this->motel->find($_GET['id']);
-        // $this->debug($motel);
         $attr = explode(';', $motel['attributes']);
-        // $this->debug($attr);
 
         $this->loadModel('Attr');
         $attribute = new Attr();
@@ -126,6 +127,7 @@ class MotelController extends BaseController
     }
 
     public function delete() // delete motel admin
+
     {
         // unlink image by name of image in database
         $this->loadModel('Image');
@@ -140,6 +142,7 @@ class MotelController extends BaseController
     }
 
     public function showMotelPage() // show motel page
+
     {
         $conn = DbConnect::connect();
 
@@ -188,26 +191,31 @@ class MotelController extends BaseController
             INNER JOIN wards ON motels.ward_id = wards.id
             WHERE motels.id = " . $_GET['id'];
 
+
+
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $motels = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         $attrMotel = explode(';', $motels[0]['attributes']);
-        // $this->debug($attrMotel);
+
         $this->loadModel('Attr');
         $attribute = new Attr();
 
         $this->loadModel('Image');
         $image = new Image();
         $images = $image->getAllImage($_GET['id']);
-        // $this->debug($images);
 
         $this->loadModel('User');
         $users = new User();
 
+        $this->loadModel('Order');
+        $order = new Order();
+        $orders = $order->getOrderByMotel($_GET['id']);
+
         $this->view(
             'motel-details',
-            ['motels' => $motels, 'images' => $images, 'attrMotel' => $attrMotel, 'attribute' => $attribute, 'users' => $users]
+            ['motels' => $motels, 'images' => $images, 'attrMotel' => $attrMotel, 'attribute' => $attribute, 'users' => $users, 'orders' => $orders]
         );
     }
 }

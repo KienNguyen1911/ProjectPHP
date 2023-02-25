@@ -34,15 +34,13 @@ class Booking extends BaseModel
         $stmt->bindParam(':motel_id', $motel_id);
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        // var_dump($result);
+
         return $result;
     }
 
     public function updateBooking($id, $data)
     {
         $conn = DbConnect::connect();
-
-        // var_dump($id,$data);
 
         $sql = "UPDATE $this->table SET start = :start, end = :end WHERE id = :id";
         $stmt = $conn->prepare($sql);

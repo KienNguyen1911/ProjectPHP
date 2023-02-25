@@ -2,7 +2,6 @@
 
 class AddressController extends BaseController
 {
-    private $province;
     private $district;
     private $ward;
 

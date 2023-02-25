@@ -11,7 +11,7 @@ class AttrController extends BaseController
     public function attributes()
     {
         $attributes = $this->attribute->show();
-        // var_dump($attributes);
+
         $this->view('admin.pages.attributes.listAttribute',
             ['attributes' => $attributes]
         );

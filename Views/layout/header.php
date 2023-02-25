@@ -54,7 +54,11 @@
                                 <?php 
                                     if ($_SESSION['user']['role'] == "admin" || $_SESSION['user']['role'] == "owner") {
                                         echo '<li><a href="index.php?controller=booking&action=getBookingsByUserId">Your Bookings</a></li>';
+                                        echo '<li><a href="index.php?controller=order&action=getOrdersByUserId">Your Order</a></li>';
                                         echo '<li><a href="index.php?controller=admin&action=dashboard">Admin Page</a></li>';
+                                    } else {
+                                        echo '<li><a href="index.php?controller=booking&action=getBookingsByUserId">Your Bookings</a></li>';
+                                        echo '<li><a href="index.php?controller=order&action=getOrdersByUserId">Your Order</a></li>';
                                     }
                                 ?>
                                 <li><a href="index.php?controller=login&action=signOut">Log Out</a></li>

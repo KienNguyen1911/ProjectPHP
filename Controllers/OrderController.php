@@ -17,4 +17,21 @@ class OrderController extends BaseController {
         $this->orders->createOrder($data);
         header('Location: index.php?controller=booking&action=getOrdersByUserId');
     }
+
+    public function getOrdersByUserId() {
+        $this->loadModel('Order');
+        $order = new Order();
+        $orders = $order->getOrdersByUserId($_SESSION['user']['id']);
+
+        $this->loadModel('Image');
+        $images = new Image();
+
+        $this->loadModel('User');
+        $users = new User();
+
+        $this->loadModel('Booking');
+        $bookings = new Booking();
+
+        $this->view('orders', ['orders' => $orders, 'images' => $images, 'users' => $users, 'bookings' => $bookings]);
+    }
 }

@@ -44,7 +44,7 @@ class LoginController extends BaseController {
         $this->loadModel('User');
         $user = new User();
         $user->signup($username, $password, $email, $phonenumber, $role);
-        // $this->view('admin.pages.sign-in');
+
         header('Location: index.php?controller=login&action=getLogin');
     }
 
