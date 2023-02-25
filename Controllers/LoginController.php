@@ -43,7 +43,15 @@ class LoginController extends BaseController {
 
         $this->loadModel('User');
         $user = new User();
-        $user->signup($username, $password, $email, $phonenumber, $role);
+        $id = $user->signup($username, $password, $email, $phonenumber, $role);
+
+        $user = $user->find($id);
+        $this->debug($user);
+
+
+        $this->loadModel('Mailer');
+        $mailer = new Mailer();
+        $mailer->notifySignUp($username, $email);
 
         header('Location: index.php?controller=login&action=getLogin');
     }

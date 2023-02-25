@@ -52,8 +52,7 @@ class MotelController extends BaseController
         );
     }
 
-    public function create() 
-
+    public function create()
     {
         $this->debug($_SESSION['user']['id']);
         if ($_SESSION['user']['role'] == 'owner' || $_SESSION['user']['role'] == 'admin') {
@@ -164,9 +163,13 @@ class MotelController extends BaseController
         $this->loadModel('User');
         $users = new User();
 
+        $this->loadModel('Province');
+        $province = new Province();
+        $provinces = $province->show();
+
         $this->view(
             'motels',
-            ['motels' => $motels, 'images' => $images, 'users' => $users]
+            ['motels' => $motels, 'images' => $images, 'users' => $users, 'provinces' => $provinces]
         );
     }
 
@@ -217,5 +220,114 @@ class MotelController extends BaseController
             'motel-details',
             ['motels' => $motels, 'images' => $images, 'attrMotel' => $attrMotel, 'attribute' => $attribute, 'users' => $users, 'orders' => $orders]
         );
+    }
+
+    public function search()
+    {
+        $conn = DbConnect::connect();
+
+        $sql = "SELECT motels.*, provinces.name as province_name, districts.name as district_name, wards.name as ward_name
+            FROM motels 
+            INNER JOIN provinces ON motels.province_id = provinces.id 
+            INNER JOIN districts ON motels.district_id = districts.id 
+            INNER JOIN wards ON motels.ward_id = wards.id
+            INNER JOIN users ON motels.owner_id = users.id
+            WHERE provinces.id = " . $_POST['province'];
+
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $motels = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $this->loadModel('Image');
+        $image = new Image();
+        $images = $image->show();
+
+        $this->loadModel('User');
+        $users = new User();
+
+        $this->view(
+            'motels',
+            ['motels' => $motels, 'images' => $images, 'users' => $users]
+        );
+    }
+
+    public function searchMotels()
+    {
+        $conn = DbConnect::connect();
+
+        if ($_POST['motelName'] != '' && $_POST['province'] != '' && $_POST['district'] != '') 
+        {
+            $sql = "SELECT motels.*, provinces.name as province_name, districts.name as district_name
+            FROM motels 
+            INNER JOIN provinces ON motels.province_id = provinces.id 
+            INNER JOIN districts ON motels.district_id = districts.id 
+            INNER JOIN users ON motels.owner_id = users.id
+            WHERE provinces.id = " . $_POST['province'] . " AND districts.id = " . $_POST['district'] . " AND motels.name LIKE '%" . $_POST['motelName'] . "%'";
+        } 
+        elseif ($_POST['province'] != '' && $_POST['district'] != '') 
+        {
+            $sql = "SELECT motels.*, provinces.name as province_name, districts.name as district_name
+            FROM motels 
+            INNER JOIN provinces ON motels.province_id = provinces.id 
+            INNER JOIN districts ON motels.district_id = districts.id 
+            INNER JOIN users ON motels.owner_id = users.id
+            WHERE provinces.id = " . $_POST['province'] . " AND districts.id = " . $_POST['district'];
+        } 
+        elseif ($_POST['motelName'] != '' && $_POST['province'] != '') 
+        {
+            $sql = "SELECT motels.*, provinces.name as province_name, districts.name as district_name
+            FROM motels 
+            INNER JOIN provinces ON motels.province_id = provinces.id 
+            INNER JOIN districts ON motels.district_id = districts.id 
+            INNER JOIN users ON motels.owner_id = users.id
+            WHERE provinces.id = " . $_POST['province'] . " AND motels.name LIKE '%" . $_POST['motelName'] . "%'";
+        } 
+        elseif ($_POST['province'] != '') 
+        {
+            $sql = "SELECT motels.*, provinces.name as province_name, districts.name as district_name
+            FROM motels 
+            INNER JOIN provinces ON motels.province_id = provinces.id 
+            INNER JOIN districts ON motels.district_id = districts.id 
+            INNER JOIN users ON motels.owner_id = users.id
+            WHERE provinces.id = " . $_POST['province'];
+        } 
+        elseif ($_POST['motelName'] != '') 
+        {
+            $sql = "SELECT motels.*, provinces.name as province_name, districts.name as district_name
+            FROM motels 
+            INNER JOIN provinces ON motels.province_id = provinces.id 
+            INNER JOIN districts ON motels.district_id = districts.id 
+            INNER JOIN users ON motels.owner_id = users.id
+            WHERE motels.name LIKE '%" . $_POST['motelName'] . "%'";
+        } 
+        else 
+        {
+            $sql = "SELECT motels.*, provinces.name as province_name, districts.name as district_name
+            FROM motels 
+            INNER JOIN provinces ON motels.province_id = provinces.id 
+            INNER JOIN districts ON motels.district_id = districts.id 
+            INNER JOIN users ON motels.owner_id = users.id";
+        }
+
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $motels = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $this->loadModel('Image');
+        $image = new Image();
+        $images = $image->show();
+
+        $this->loadModel('User');
+        $users = new User();
+
+        $this->loadModel('Province');
+        $province = new Province();
+        $provinces = $province->show();
+
+        $this->view(
+            'motels',
+            ['motels' => $motels, 'images' => $images, 'users' => $users, 'provinces' => $provinces]
+        );
+
     }
 }

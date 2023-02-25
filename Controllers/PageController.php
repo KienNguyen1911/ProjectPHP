@@ -4,7 +4,11 @@ class PageController extends BaseController
 {
     public function index()
     {
-        $this->view('index');
+        $this->loadModel('Province');
+        $province = new Province();
+        $provinces = $province->show();
+
+        $this->view('index', ['provinces' => $provinces]);
     }
 
     public function about()

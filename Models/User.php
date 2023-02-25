@@ -20,6 +20,9 @@ class User extends BaseModel {
         $sql = "INSERT INTO " . self::TABLE . " (username, password, email, phonenumber, role) VALUES ('$username', '$password', '$email', '$phonenumber', '$role')";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
+
+        $id = $conn->lastInsertId();
+        return $id;
     }
 
 

@@ -6,23 +6,20 @@
 			<div class="row align-items-center">
 				<div class="col-lg-7">
 					<div class="intro-wrap">
-						<h1 class="mb-5"><span class="d-block">Let's Enjoy Your</span> Trip In <span class="typed-words"></span></h1>
+						<h1 class="mb-5"><span class="d-block">Let's Enjoy Your</span> Trip In <span
+								class="typed-words"></span></h1>
 
 						<div class="row">
 							<div class="col-12">
-								<form class="form">
+								<form class="form" method="post" action="index.php?controller=motel&action=search">
 									<div class="row mb-2">
 										<div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-4">
-											<select name="" id="" class="form-control custom-select">
+
+											<select name="province" id="" class="form-control custom-select">
 												<option value="">Destination</option>
-												<option value="">Peru</option>
-												<option value="">Japan</option>
-												<option value="">Thailand</option>
-												<option value="">Brazil</option>
-												<option value="">United States</option>
-												<option value="">Israel</option>
-												<option value="">China</option>
-												<option value="">Russia</option>
+												<?php foreach ($provinces as $province): ?>
+													<option value="<?= $province['id'] ?>"> <?php echo $province['name'] ?> </option>
+												<?php endforeach; ?>
 											</select>
 										</div>
 										<div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-5">
@@ -50,7 +47,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="col-lg-5">
 					<div class="slides">
 						<img src="Views/assets/images/hero-slider-1.jpg" alt="Image" class="img-fluid active">
@@ -59,10 +56,10 @@
 						<img src="Views/assets/images/hero-slider-4.jpg" alt="Image" class="img-fluid">
 						<img src="Views/assets/images/hero-slider-5.jpg" alt="Image" class="img-fluid">
 					</div>
-				
+
 				</div>
 			</div>
-		
+
 		</div>
 	</div>
 
@@ -72,14 +69,17 @@
 			<div class="row mb-5 justify-content-center">
 				<div class="col-lg-6 text-center">
 					<h2 class="section-title text-center mb-3">Our Services</h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
+						live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
+						a large language ocean.</p>
 				</div>
 			</div>
 			<div class="row align-items-stretch">
 				<div class="col-lg-4 order-lg-1">
 					<div class="h-100">
 						<div class="frame h-100">
-							<div class="feature-img-bg h-100" style="background-image: url('Views/assets/images/hero-slider-1.jpg');"></div>
+							<div class="feature-img-bg h-100"
+								style="background-image: url('Views/assets/images/hero-slider-1.jpg');"></div>
 						</div>
 					</div>
 				</div>
@@ -259,7 +259,8 @@
 							</figure>
 							<h3 class="name">Adam Aderson</h3>
 							<blockquote>
-								<p>&ldquo;There live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
+								<p>&ldquo;There live the blind texts. Separated they live in Bookmarksgrove right at the
+									coast of the Semantics, a large language ocean.&rdquo;</p>
 							</blockquote>
 						</div>
 
@@ -269,7 +270,8 @@
 							</figure>
 							<h3 class="name">Lukas Devlin</h3>
 							<blockquote>
-								<p>&ldquo;There live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
+								<p>&ldquo;There live the blind texts. Separated they live in Bookmarksgrove right at the
+									coast of the Semantics, a large language ocean.&rdquo;</p>
 							</blockquote>
 						</div>
 
@@ -279,7 +281,8 @@
 							</figure>
 							<h3 class="name">Kayla Bryant</h3>
 							<blockquote>
-								<p>&ldquo;There live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
+								<p>&ldquo;There live the blind texts. Separated they live in Bookmarksgrove right at the
+									coast of the Semantics, a large language ocean.&rdquo;</p>
 							</blockquote>
 						</div>
 
@@ -296,13 +299,16 @@
 			<div class="row justify-content-center text-center mb-5">
 				<div class="col-lg-6">
 					<h2 class="section-title text-center mb-3">Special Offers &amp; Discounts</h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
+						live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
+						a large language ocean.</p>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
 					<div class="media-1">
-						<a href="#" class="d-block mb-3"><img src="Views/assets/images/hero-slider-1.jpg" alt="Image" class="img-fluid"></a>
+						<a href="#" class="d-block mb-3"><img src="Views/assets/images/hero-slider-1.jpg" alt="Image"
+								class="img-fluid"></a>
 						<span class="d-flex align-items-center loc mb-2">
 							<span class="icon-room mr-3"></span>
 							<span>Italy</span>
@@ -321,7 +327,8 @@
 				</div>
 				<div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
 					<div class="media-1">
-						<a href="#" class="d-block mb-3"><img src="Views/assets/images/hero-slider-2.jpg" alt="Image" class="img-fluid"></a>
+						<a href="#" class="d-block mb-3"><img src="Views/assets/images/hero-slider-2.jpg" alt="Image"
+								class="img-fluid"></a>
 						<span class="d-flex align-items-center loc mb-2">
 							<span class="icon-room mr-3"></span>
 							<span>United States</span>
@@ -340,7 +347,8 @@
 				</div>
 				<div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
 					<div class="media-1">
-						<a href="#" class="d-block mb-3"><img src="Views/assets/images/hero-slider-3.jpg" alt="Image" class="img-fluid"></a>
+						<a href="#" class="d-block mb-3"><img src="Views/assets/images/hero-slider-3.jpg" alt="Image"
+								class="img-fluid"></a>
 						<span class="d-flex align-items-center loc mb-2">
 							<span class="icon-room mr-3"></span>
 							<span>Malaysia</span>
@@ -359,7 +367,8 @@
 				</div>
 				<div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
 					<div class="media-1">
-						<a href="#" class="d-block mb-3"><img src="Views/assets/images/hero-slider-4.jpg" alt="Image" class="img-fluid"></a>
+						<a href="#" class="d-block mb-3"><img src="Views/assets/images/hero-slider-4.jpg" alt="Image"
+								class="img-fluid"></a>
 
 						<span class="d-flex align-items-center loc mb-2">
 							<span class="icon-room mr-3"></span>
@@ -388,7 +397,8 @@
 
 				<div class="col-lg-6">
 					<figure class="img-play-video">
-						<a id="play-video" class="video-play-button" href="https://www.youtube.com/watch?v=mwtbEGNABWU" data-fancybox>
+						<a id="play-video" class="video-play-button" href="https://www.youtube.com/watch?v=mwtbEGNABWU"
+							data-fancybox>
 							<span></span>
 						</a>
 						<img src="Views/assets/images/hero-slider-2.jpg" alt="Image" class="img-fluid rounded-20">
@@ -397,9 +407,13 @@
 
 				<div class="col-lg-5">
 					<h2 class="section-title text-left mb-4">Take a look at Tour Video</h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
+						live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
+						a large language ocean.</p>
 
-					<p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+					<p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary
+						regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your
+						mouth.</p>
 
 					<ul class="list-unstyled two-col clearfix">
 						<li>Outdoor recreation activities</li>
@@ -427,16 +441,16 @@
 	?>
 
 	<script>
-		$(function() {
+		$(function () {
 			var slides = $('.slides'),
 				images = slides.find('img');
 
-			images.each(function(i) {
+			images.each(function (i) {
 				$(this).attr('data-id', i + 1);
 			})
 
 			var typed = new Typed('.typed-words', {
-				strings: ["San Francisco.", " Paris.", " New Zealand.", " Maui.", " London."],
+				strings: ["Ha Noi.", " Ho Chi Minh.", " Da Nang.", " Hue.", " Can Tho."],
 				typeSpeed: 80,
 				backSpeed: 80,
 				backDelay: 4000,

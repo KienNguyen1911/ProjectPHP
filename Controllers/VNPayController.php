@@ -109,10 +109,19 @@ class VNPayController extends BaseController
         $this->loadModel('Order');
         $orders = new Order();
         $idOrder = $orders->createOrder($data);
-
+        $order = $orders->find($idOrder); 
+        
         $this->loadModel('Motel');
         $motels = new Motel();
         $motel = $motels->find($booking['motel_id']);
+        
+        $this->loadModel('User');
+        $users = new User();
+        $user = $users->find($_SESSION['user']['id']);
+
+        $this->loadModel('Mailer');
+        $mailers = new Mailer();
+        $mailers->notifyOrder($user['username'], $user['email'], $idOrder, $order['total'], $motel['name'], $booking['start'], $booking['end']);
 
         $secureHash = hash_hmac('sha512', $hashData, $vnp_HashSecret);
         $this->view('vnpay_php/vnpay_return', ['data' => $inputData, 'order' => $idOrder, 'motel' => $motel, 'booking' => $booking]);
