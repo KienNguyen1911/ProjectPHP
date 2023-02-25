@@ -111,13 +111,13 @@ class MotelController extends BaseController
         $this->debug($_POST);
         $attributes = implode(';', $_POST['attribute']);
         $motel = [
-            'name' => $_POST['name'],
-            'price' => (int) $_POST['price'],
-            'description' => $_POST['description'],
-            'status' => $_POST['status'],
-            'province_id' => $_POST['province'],
-            'district_id' => $_POST['district'],
-            'ward_id' => $_POST['ward'],
+            'name' => $this->validateInput($_POST['name']),
+            'price' => (int) $this->validateInput($_POST['price']),
+            'description' => $this->validateInput($_POST['description']),
+            'status' => $this->validateInput($_POST['status']),
+            'province_id' => $this->validateInput($_POST['province']),
+            'district_id' => $this->validateInput($_POST['district']),
+            'ward_id' => $this->validateInput($_POST['ward']),
             'attributes' => $attributes,
             'id' => $_GET['id']
         ];
@@ -330,4 +330,5 @@ class MotelController extends BaseController
         );
 
     }
+
 }

@@ -28,6 +28,7 @@
                                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Price</th>
                                             <th class="text-secondary opacity-7"></th>
                                             <th class="text-secondary opacity-7"></th>
+                                            <th class="text-secondary opacity-7"></th>
 
                                         </tr>
                                     </thead>
@@ -54,6 +55,11 @@
                                                 </td>
                                                 <td class="align-middle text-center">
                                                     <span class="text-secondary text-s font-weight-bold">$<?php echo $value['price'] ?></span>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <a href="index.php?controller=image&action=showByMotel&id=<?php echo $value['id'] ?>" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                                        Images
+                                                    </a>
                                                 </td>
                                                 <td class="align-middle">
                                                     <a href="index.php?controller=motel&action=edit&id=<?php echo $value['id'] ?>" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">

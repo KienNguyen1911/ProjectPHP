@@ -25,7 +25,7 @@ class LoginController extends BaseController {
         } else {
             $message = 'Sai tài khoản hoặc mật khẩu';
             $_SESSION['message'] = $message;
-            header('Location: index.php?controller=page&action=getLogin');
+            header('Location: index.php?controller=page&action=login');
         }
     }
 

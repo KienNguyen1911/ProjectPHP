@@ -20,7 +20,7 @@ class AttrController extends BaseController
     public function create()
     {
         $attr = [
-            'attribute_name' => $_POST['attribute_name']
+            'attribute_name' => $this->validateInput($_POST['attribute_name'])
         ];
         $this->attribute->create($attr);
         header('Location: index.php?controller=attr&action=attributes');

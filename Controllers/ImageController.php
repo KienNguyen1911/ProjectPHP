@@ -8,9 +8,9 @@ class ImageController extends BaseController {
         $this->image = new Image();
     }
 
-    public function index() {
-        $images = $this->image->show();
-        $this->view('admin.pages.images.listImage', ['images' => $images]);
+    public function showByMotel() {
+        $images = $this->image->findImageByMotel($_GET['id']);
+        $this->view('admin.pages.motels.images', ['images' => $images]);
     }
 
     public function create($idMotel) {
@@ -21,5 +21,14 @@ class ImageController extends BaseController {
     public function getFirst() {
         $images = $this->image->getOneImage($_GET['id']);
         return $images;
+    }
+
+    public function deleteImage() {
+        $this->loadModel('Motel');
+        $motel = new Motel();
+        $motels = $motel->findMotelByImg($_GET['idImg']);
+        // $this->debug($motels);
+        $this->image->deleteImage($_GET['idImg'], $motels['motel_id']);
+        header('Location: index.php?controller=image&action=showByMotel&id=' . $motels['motel_ id']);
     }
 }

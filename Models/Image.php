@@ -51,4 +51,24 @@ class Image extends BaseModel {
         $result = $stmt->fetchAll();
         return $result;
     }
+
+    public function findImageByMotel($id) {
+        $conn = DbConnect::connect();
+        $sql = "SELECT images.* FROM $this->table INNER JOIN motels ON motels.id = images.motel_id WHERE motels.id = :id";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function deleteImage($idImg, $idMotel) {
+        $conn = DbConnect::connect();
+        $sql = "DELETE FROM $this->table WHERE motel_id = :idMotel AND id = :idImg";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':idMotel', $idMotel);
+        $stmt->bindParam(':idImg', $idImg);
+
+        $stmt->execute();
+    }
 }

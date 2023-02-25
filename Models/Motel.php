@@ -57,6 +57,16 @@ class Motel extends BaseModel{
         $stmt->execute();
     }
 
+    public function findMotelByImg($id) {
+        $conn = DbConnect::connect();
+        $sql = "SELECT * FROM $this->table INNER JOIN images ON images.motel_id = motels.id WHERE images.id = :id";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        return $result;
+    }
+
     
     
 }
