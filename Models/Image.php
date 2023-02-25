@@ -71,4 +71,32 @@ class Image extends BaseModel {
 
         $stmt->execute();
     }
+
+    public function createImgMotel($id) {
+        $conn = DbConnect::connect();
+        $target_dir = "Views/upload/";
+        $array = $_FILES["images"]["name"];
+
+        // validate form upload image png, jpg, jpeg, jfif
+        $valid_extensions = array('jpeg', 'jpg', 'png', 'jfif', 'webp');
+        foreach ($array as $key => $value) {
+            $ext = strtolower(pathinfo($array[$key], PATHINFO_EXTENSION));
+            if (!in_array($ext, $valid_extensions)) {
+                echo "File không hợp lệ";
+                die();
+            }
+        }        
+
+        // upload image
+        $count = 1;
+        foreach ($array as $key => $value) {
+            $target_file = $target_dir ."-" . $id. "-" . $count. "-" . basename($array[$key]);
+            if (move_uploaded_file($_FILES["images"]["tmp_name"][$key], $target_file)) {
+                echo $sql = "INSERT INTO images (motel_id, image_name) VALUES ('$id', '$target_file')";
+                $conn->exec($sql);
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
+    }
 }

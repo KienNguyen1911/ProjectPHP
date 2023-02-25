@@ -12,7 +12,12 @@
                     <div class="card mb-4">
                         <div class="card-header pb-0 d-flex justify-content-between align-items-center">
                             <h5>List Images </h5>
-                            <a href="index.php?controller=motel&action=add" class="btn btn-primary">Add Image</a>
+                            <form action="index.php?controller=image&action=addImgMotel&idMotel=<?php echo $images[0]['motel_id'] ?>" method="post">
+                                <div class="d-flex form-group" style="justify-content: center; align-items: center; gap: 10px">
+                                    <input type="file" name="images[]" multiple class="form-control"  >
+                                    <button href="index.php?controller=image&action=addImgMotel" class="btn btn-primary m-0">Add Image</button>
+                                </div>
+                            </form>
                         </div>
 
                         <div class="card-body px-0 pt-0 pb-2">

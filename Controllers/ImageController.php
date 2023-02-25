@@ -31,4 +31,9 @@ class ImageController extends BaseController {
         $this->image->deleteImage($_GET['idImg'], $motels['motel_id']);
         header('Location: index.php?controller=image&action=showByMotel&id=' . $motels['motel_ id']);
     }
+
+    public function addImgMotel() {
+        $this->image->createImgMotel($_GET['iidMotel']);
+        header('Location: index.php?controller=image&action=showByMotel&id=' . $_GET['id']);
+    }
 }
