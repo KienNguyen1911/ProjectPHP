@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 25, 2023 at 05:12 PM
+-- Generation Time: Feb 25, 2023 at 05:38 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -911,7 +911,8 @@ INSERT INTO `images` (`id`, `image_name`, `motel_id`) VALUES
 (48, 'Views/upload/-23-1-415583109.jpg', 23),
 (49, 'Views/upload/-23-1-415583070.jpg', 23),
 (50, 'Views/upload/-23-1-417144932.jpg', 23),
-(51, 'Views/upload/-23-1-415583106.jpg', 23);
+(51, 'Views/upload/-23-1-415583106.jpg', 23),
+(52, 'Views/upload/-23-1-03112bc3-0ca8-463e-b2b3-eb7c8a3aa4f1.webp', 23);
 
 -- --------------------------------------------------------
 
@@ -11825,7 +11826,7 @@ ALTER TABLE `bookings`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `motels`
