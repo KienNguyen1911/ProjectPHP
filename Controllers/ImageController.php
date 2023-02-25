@@ -27,13 +27,12 @@ class ImageController extends BaseController {
         $this->loadModel('Motel');
         $motel = new Motel();
         $motels = $motel->findMotelByImg($_GET['idImg']);
-        // $this->debug($motels);
         $this->image->deleteImage($_GET['idImg'], $motels['motel_id']);
-        header('Location: index.php?controller=image&action=showByMotel&id=' . $motels['motel_ id']);
+        header('Location: index.php?controller=image&action=showByMotel&id=' . $motels['motel_id']);
     }
 
     public function addImgMotel() {
-        $this->image->createImgMotel($_GET['iidMotel']);
-        header('Location: index.php?controller=image&action=showByMotel&id=' . $_GET['id']);
+        $this->image->createImgMotel($_GET['idMotel']);
+        header('Location: index.php?controller=image&action=showByMotel&id=' . $_GET['idMotel']);
     }
 }
