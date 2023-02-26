@@ -34,4 +34,10 @@ class OrderController extends BaseController {
 
         $this->view('orders', ['orders' => $orders, 'images' => $images, 'users' => $users, 'bookings' => $bookings]);
     }
+
+    public function billing() {
+        $data = $this->orders->getAllOrder();
+        $statistics = $this->orders->getStatistics();
+        $this->view('admin.pages.billing', ['data' => $data, 'statistics' => $statistics]);
+    }
 }

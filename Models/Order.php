@@ -71,4 +71,33 @@ class Order extends BaseModel {
 
         return $result;
     }
+
+    public function getAllOrder() {
+        $conn = DbConnect::connect();
+
+        $sql = "SELECT orders.*, bookings.user_id, bookings.motel_id, bookings.start, bookings.end, motels.name, users.email, provinces.name AS province_name, districts.name AS district_name, wards.name AS ward_name FROM motels 
+        INNER JOIN bookings ON motels.id = bookings.motel_id 
+        INNER JOIN orders ON bookings.id = orders.booking_id 
+        INNER JOIN provinces ON motels.province_id = provinces.id
+        INNER JOIN districts ON motels.district_id = districts.id
+        INNER JOIN wards ON motels.ward_id = wards.id
+        INNER JOIN users ON bookings.user_id = users.id
+        ORDER BY orders.created_at DESC";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $orders;
+    }
+
+    public function getStatistics() {
+        $conn = DbConnect::connect();
+
+        $sql = "SELECT SUM(total) AS total, MONTH(created_at) AS month FROM orders GROUP BY MONTH(created_at)";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $orders;
+    }
 }
